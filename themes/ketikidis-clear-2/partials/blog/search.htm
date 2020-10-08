@@ -1,0 +1,34 @@
+description = "Search"
+
+[viewBag]
+
+[searchInput]
+useAutoComplete = 1
+autoCompleteResultCount = 5
+showProviderBadge = 1
+searchPage = "blog/search-results.htm"
+==
+<aside class="search-bar" data-aos="zoom-in" data-aos-delay="300">
+    <form action="{{ searchInput.searchPage | page }}?q={{ query | url_encode(true) }}" method="get">
+        <div class="ss-search-form">
+            <div class="ss-search-form__input">
+                <input name="q" type="text" placeholder="Search" autocomplete="off" class="form-control"
+                {% if searchInput.useAutoComplete %}
+                data-track-input
+                data-request="onType"
+                data-request-before-update="document.getElementById('autocomplete-results').classList.add('ss-search-form__results--visible')"
+                data-request-update="'{{ searchInput }}::autocomplete': '#autocomplete-results'"
+                {% endif %}
+                >
+                <button class="btn btn-common btn-rm" type="submit">
+                {% if this.theme.fonts_lineicons %}
+                <i class="lnr lnr-magnifier"></i> 
+                {% else %}
+                <i class="fa fa-search"></i> 
+                {% endif %}
+                </button>
+            </div>
+            <div class="ss-search-form__results" id="autocomplete-results"></div>
+        </div>
+    </form>
+</aside>

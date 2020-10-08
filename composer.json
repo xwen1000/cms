@@ -1,0 +1,5 @@
+{
+    "require": {
+        "vojtasvoboda/oc-twigextensions-plugin": "dev-master"
+    }
+}

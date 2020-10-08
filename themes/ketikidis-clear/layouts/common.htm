@@ -1,0 +1,87 @@
+==
+<!DOCTYPE html>
+<html lang="{{ this.theme.site_locale }}">
+    <head>
+        {% partial "site/meta" %}
+        {% partial "site/css" %}
+    </head><!--/#head-->
+    <body class="page-{{ this.page.id }} layout-{{ this.page.layout }}" >
+    
+        <!--Google Analytics -->
+        {{ this.theme.google_analytics|raw }}
+
+        <header id="header-wrap" class="header">
+            {% partial "site/top" %}
+            {% partial "site/nav" %}
+        </header><!--/#header-->
+    
+        <!--Page header-->
+        {% partial "site/page-header" %}
+        <section class="page-section">
+            {% if this.theme.layout_container %}
+            <div class="{{ this.theme.layout_container }}">
+            {% else %}
+            <div class="container">
+            {% endif %}
+                {% page %}
+            </div>
+        </section>
+    
+        <!--Blog partials-->
+
+        <footer>
+        	{% partial "site/footer" %}
+        </footer><!--/#footer-->
+    
+        <!-- Copyright -->
+        {% partial "site/copyright" %}
+    
+        <!-- Scroll to top -->
+        {% partial "site/scrolltop" %}
+        
+        <!-- Loader -->
+        {% partial "site/loader" %}
+    
+        <!-- Scripts -->
+        {% partial "site/scripts" %}
+        
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/layer/2.3/layer.js"></script>
+        
+        
+        {% framework %}
+
+        <script type="text/javascript">
+            function doProhibit()
+            {
+             if(window.Event) 
+                 document.captureEvents(Event.MOUSEUP);
+              
+             function nocontextmenu() 
+             {
+                 event.cancelBubble = true 
+                 event.returnvalue = false;
+                 return false;
+             }
+             
+             function norightclick(e) 
+             {
+                 if (window.Event)
+                 {
+                    if (e.which == 2 || e.which == 3)
+                    return false;
+                 }
+                 else if (event.button == 2 || event.button == 3) 
+                 {
+               event.cancelBubble = true 
+               event.returnvalue = false;
+               return false;
+                 }
+             }
+             document.oncontextmenu = nocontextmenu;  // for IE5+ 
+             document.onmousedown = norightclick;  // 
+            }
+            doProhibit();
+        </script>
+</body><!--/#body-->
+</html>

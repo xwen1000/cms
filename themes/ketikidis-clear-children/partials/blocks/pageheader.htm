@@ -1,0 +1,32 @@
+description = "Page Header Section"
+
+[viewBag]
+==
+<section id="page-header" class="jarallax" style="background-image: url(
+    {% if this.theme.settings_pageheader %}
+    {{ this.theme.settings_pageheader|media }}
+    {% else %}
+    {{ 'assets/images/img/1920x500.png'|theme }}
+    {% endif %}
+    );">
+    <div class="overlay"></div>
+    {% if data.section_pageheader_container %}
+    <div class="{{ data.section_pageheader_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="row justify-content-md-center">
+            <div class="col-md-10" data-aos="zoom-in" data-aos-delay="300">
+                <div class="contents text-center">
+                    <h1 class="contents-title">{{ this.page.title }}</h1>
+                    {% if this.page.meta_title %}
+                    <h4>{{ this.page.meta_title }}</h4>
+                    {% endif %}
+                    {% if this.page.meta_description %}
+                    <p>{{ this.page.meta_description }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

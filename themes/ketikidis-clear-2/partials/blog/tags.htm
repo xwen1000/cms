@@ -1,0 +1,19 @@
+description = "Tags"
+
+[viewBag]
+
+[tags]
+results = 17
+sortOrder = "name asc"
+==
+<aside class="widget tag-cloud" data-aos="zoom-in" data-aos-delay="300">
+    <h2 class="widget-title">Tag clouds</h2>
+    <div class="clearfix">
+        {% set tags = tags.tags %}
+        <ul>
+            {% for tag in tags %}
+            <li><a class="btn btn-common btn-rm" href="{{ '/tag' }}/{{ tag.slug }}">{{ tag.name }}({{ tag.posts|length }})</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</aside>

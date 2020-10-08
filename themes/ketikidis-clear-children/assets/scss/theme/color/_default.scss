@@ -1,0 +1,470 @@
+//colors
+$color_cornflower_blue_approx: #468efa;
+$color_cornflower_blue_70_approx: rgba(70, 142, 250, 0.7);
+
+a {
+	color: $color_cornflower_blue_approx;
+	&:hover {
+		color: $color_cornflower_blue_70_approx;
+	}
+	&:focus {
+		color: $color_cornflower_blue_70_approx;
+	}
+	&:not([href]):not([tabindex]) {
+		&:focus {
+			color: $color_cornflower_blue_approx;
+		}
+		&:hover {
+			color: $color_cornflower_blue_approx;
+		}
+	}
+}
+.btn-common {
+	border-color: $color_cornflower_blue_approx;
+	background-color: $color_cornflower_blue_approx;
+	&:hover {
+		border-color: $color_cornflower_blue_approx;
+		color: $color_cornflower_blue_approx;
+	}
+}
+.controls {
+	.active {
+		color: $color_cornflower_blue_approx !important;
+		border-color: $color_cornflower_blue_approx;
+	}
+	.mixitup-control-active {
+		color: $color_cornflower_blue_approx!important;
+		border-color: $color_cornflower_blue_approx;
+	}
+}
+#carousel-area {
+	.carousel-control-next i:hover {
+		border: 2px solid $color_cornflower_blue_approx;
+		background: $color_cornflower_blue_approx;
+	}
+	.carousel-control-prev i:hover {
+		border: 2px solid $color_cornflower_blue_approx;
+		background: $color_cornflower_blue_approx;
+	}
+}
+.section-header {
+	.lines {
+		border-color: $color_cornflower_blue_approx;
+		&:before {
+			background: $color_cornflower_blue_approx;
+		}
+	}
+	.section-title span {
+		color: $color_cornflower_blue_approx;
+	}
+}
+.overlay {
+	background: $color_cornflower_blue_approx;
+}
+.item-line {
+	background: $color_cornflower_blue_approx none repeat scroll 0 0;
+}
+.menu-wrap {
+	a {
+		&:hover {
+			color: $color_cornflower_blue_approx;
+		}
+		&:focus {
+			color: $color_cornflower_blue_approx;
+		}
+	}
+	.navbar-nav li {
+		.active {
+			color: $color_cornflower_blue_approx;
+		}
+		.active::before {
+			color: $color_cornflower_blue_approx;
+		}
+	}
+}
+.pricing-table {
+	.icon {
+		color: $color_cornflower_blue_approx;
+		border-color: $color_cornflower_blue_approx;
+	}
+	.pricing-details span {
+		color: $color_cornflower_blue_approx;
+	}
+	&.table-top {
+		border: 1px solid $color_cornflower_blue_approx;
+	}
+	&:hover {
+		.icon {
+			background: $color_cornflower_blue_approx;
+		}
+	}
+}
+#blog {
+	.blog-item-img:before {
+		background: $color_cornflower_blue_approx;
+	}
+	.blog-item-text h3 a:hover {
+		color: $color_cornflower_blue_approx;
+	}
+}
+.blog-gallery {
+	#post-gallery-items {
+		.post-gallery-item:before {
+				background: $color_cornflower_blue_approx;
+		}
+	}
+}
+.similar-posts {
+	.blog-item-img:before {
+		background: $color_cornflower_blue_approx;
+	}
+	.blog-item-text h3 a:hover {
+		color: $color_cornflower_blue_approx;
+	}
+}
+.video-promo {
+	.video-promo-content {
+		.video-popup {
+			&:hover {
+				background: $color_cornflower_blue_approx;
+			}
+		}
+	}
+}
+.btn-border:hover {
+	background-color: $color_cornflower_blue_approx;
+}
+#subscribe .sub_btn {
+	background: $color_cornflower_blue_approx;
+	&:hover {
+		background: $color_cornflower_blue_approx;
+	}
+}
+#page-header .overlay {
+	background: $color_cornflower_blue_approx;
+}
+.mainmenu-area .navbar-nav {
+	.nav-link {
+		&.active {
+			color: $color_cornflower_blue_approx;
+		}
+		&.active::before {
+			color: $color_cornflower_blue_approx;
+		}
+		&.open {
+			color: $color_cornflower_blue_approx;
+		}
+		&:focus {
+			color: $color_cornflower_blue_approx;
+		}
+		&:hover {
+			color: $color_cornflower_blue_approx;
+			&:before {
+				color: $color_cornflower_blue_approx;
+			}
+		}
+		&:before {
+			background: $color_cornflower_blue_approx;
+		}
+	}
+	.active > .nav-link {
+		color: $color_cornflower_blue_approx;
+	}
+	.open > .nav-link {
+		color: $color_cornflower_blue_approx;
+	}
+}
+#header-wrap {
+	&.transparent {
+		.top-section {
+			.top-area {
+				.language {
+					.picker-lang.active a {
+						color: $color_cornflower_blue_approx;
+					}
+				}
+			}
+		}
+		.mainmenu-area {
+			.navbar-nav > li > {
+				.nav-link {
+					&:hover {
+						color: $color_cornflower_blue_approx;
+					}
+				}
+			}
+			.navbar-nav > li.active > {
+				.nav-link {
+					color: $color_cornflower_blue_approx;
+				}
+			}
+		}
+		.mainmenu-area.sticky.is-sticky {
+			.navbar-nav > li > {
+				.nav-link {
+					&:hover {
+						color: $color_cornflower_blue_approx;
+					}
+				}	
+			}
+			.navbar-nav > li.active > {
+				.nav-link {
+					color: $color_cornflower_blue_approx;
+				}
+			}
+		}
+	}
+}
+.navbar-toggler {
+	background: $color_cornflower_blue_approx;
+	&:active {
+		border: 1px solid $color_cornflower_blue_approx;
+		color: $color_cornflower_blue_approx;
+	}
+	&:hover {
+		border: 1px solid $color_cornflower_blue_approx;
+	}
+	&:hover i {
+		color: $color_cornflower_blue_approx;
+	}
+}
+.icon-list a::before {
+	background: $color_cornflower_blue_approx;
+}
+#about .about-boxes .icon {
+	border-color: $color_cornflower_blue_approx;
+	i {
+		color: $color_cornflower_blue_approx;
+	}
+}
+.item-boxes {
+	.icon {
+		border-color: $color_cornflower_blue_approx;
+		i {
+			color: $color_cornflower_blue_approx;
+		}
+	}
+	&:hover .icon {
+		background: $color_cornflower_blue_approx;
+	}
+}
+#features .box-item {
+	.icon {
+		border-color: $color_cornflower_blue_approx;
+		i {
+			color: $color_cornflower_blue_approx;
+		}
+	}
+	&:hover .icon {
+		background: $color_cornflower_blue_approx;
+	}
+}
+.shot-item .overlay {
+	&:before {
+		background: $color_cornflower_blue_approx;
+	}
+	&:after {
+		background: $color_cornflower_blue_approx;
+	}
+}
+.owl-theme .owl-dots {
+	.owl-dot span {
+		background: $color_cornflower_blue_approx;
+	}
+	.owl-dot.active span {
+		background: $color_cornflower_blue_approx;
+	}
+}
+.meta-tags span a:hover {
+	color: $color_cornflower_blue_approx;
+}
+.form-control:focus {
+	-webkit-box-shadow: 0 0 2px $color_cornflower_blue_approx;
+	        box-shadow: 0 0 2px $color_cornflower_blue_approx;
+}
+#contact:before {
+	background: $color_cornflower_blue_approx;
+}
+.contactinfo-table {
+	.contactinfo-details {
+		span {
+			color: $color_cornflower_blue_approx;
+		}
+	}
+}
+.back-to-top i {
+	background-color: $color_cornflower_blue_approx;
+}
+.double-bounce1, .double-bounce2, .double-bounce3 {
+	background-color: $color_cornflower_blue_approx;
+}
+.single-team .social-list li a {
+	color: $color_cornflower_blue_approx;
+}
+.blog-section {
+	.blog-post {
+		.blog-data {
+			.blog-share {
+				a {
+					border: 1px solid $color_cornflower_blue_approx;
+					&:hover {
+						background: $color_cornflower_blue_approx;
+					}
+				}
+			}
+		}
+		.sidebar-area {
+			.categories {
+				.badge {
+					background: $color_cornflower_blue_approx;
+				}
+			}
+		}
+	}
+}
+.blog-pagination nav ul.pagination li.page-item {
+	a {
+		&:hover {
+			background: $color_cornflower_blue_approx none repeat scroll 0 0;
+			border: 1px solid $color_cornflower_blue_approx;
+		}
+		&:focus {
+			background: $color_cornflower_blue_approx none repeat scroll 0 0;
+			border: 1px solid $color_cornflower_blue_approx;
+		}
+	}
+	&.active a {
+		background: $color_cornflower_blue_approx none repeat scroll 0 0;
+		border: 1px solid $color_cornflower_blue_approx;
+	}
+}
+.about-section {
+	.details-list {
+		h4 {
+			color: $color_cornflower_blue_approx;
+		}
+	}
+	h2.title {
+		color: $color_cornflower_blue_approx;
+	}
+}
+#default-tab {
+	.nav-tabs > li {
+		> a.active {
+			color: $color_cornflower_blue_approx;
+		}
+		a.active {
+			&:focus {
+				color: $color_cornflower_blue_approx;
+			}
+			&:hover {
+				color: $color_cornflower_blue_approx;
+			}
+		}
+	}
+	ul.nav-tabs > li a.active::before {
+		background-color: $color_cornflower_blue_approx;
+	}
+}
+#skills-tabs {
+	ul.nav-tabs li a {
+		border: 1px solid $color_cornflower_blue_approx;
+		&:focus {
+			background: $color_cornflower_blue_approx none repeat scroll 0 0;
+		}
+		&:hover {
+			background: $color_cornflower_blue_approx none repeat scroll 0 0;
+		}
+		&.active {
+			background: $color_cornflower_blue_approx none repeat scroll 0 0;
+		}
+		i {
+			color: $color_cornflower_blue_approx;
+		}
+	}
+}
+.progress-bar {
+    background: $color_cornflower_blue_approx;
+}
+.top-section {
+	.top-area {
+		.language {
+			.picker-lang {
+				&.active a {
+					color: $color_cornflower_blue_approx;
+				}
+			}
+		}
+	}	
+}
+#clients {
+	.client-item-wrapper{
+		&:hover {
+			border-color: $color_cornflower_blue_approx;
+		}
+	}
+}
+.next-prev {
+	ul {
+		> li {
+			a {
+				&:hover {
+					border-color: $color_cornflower_blue_approx;
+					i {
+						color: $color_cornflower_blue_approx;
+					}
+				}
+				&:focus {
+					border-color: $color_cornflower_blue_approx;
+					i {
+						color: $color_cornflower_blue_approx;
+					}
+				}
+				&:active {
+					border-color: $color_cornflower_blue_approx;
+					i {
+						color: $color_cornflower_blue_approx;
+					}
+				}
+			}
+		}
+	}
+}
+footer {
+	.footer-widget {
+		ul li {
+			a {
+				&::before {
+					color: $color_cornflower_blue_approx;
+				}
+			}
+		}
+		.tagcloud {
+			a {
+				&:hover {
+					border: 1px solid $color_cornflower_blue_approx;
+					color: $color_cornflower_blue_approx;
+				}
+			}
+		}
+		.contact-list {
+			li {
+				i {
+					background: $color_cornflower_blue_approx;
+					border: 1px solid $color_cornflower_blue_approx;
+				}
+			}
+		}
+	}
+}
+.social-icons {
+	ul {
+		li {
+			a {
+				&:hover {
+					background: $color_cornflower_blue_approx;
+				}
+			}
+		}
+	}
+}

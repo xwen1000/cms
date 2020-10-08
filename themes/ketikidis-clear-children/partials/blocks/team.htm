@@ -1,0 +1,44 @@
+description = "Team Section"
+
+[viewBag]
+==
+<section id="team" class="section" style="background-color: {{ data.section_team_bg }};">
+    {% if data.section_team_container %}
+    <div class="{{ data.section_team_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="section-header" data-aos="zoom-in" data-aos-delay="300">
+            <h2 class="section-title">{{ data.section_team_header }}</h2>
+            <hr class="lines">
+            <p class="section-subtitle">{{ data.section_team_subheader }}</p>
+        </div>
+        <div class="row">
+            {% for fields in data.section_team %}
+            <div class="col-md-3 col-sm-6 col-xs-12" data-aos="zoom-in" data-aos-delay="300">
+                <div class="single-team">
+                    {% if fields.section_team_image %}
+                    <img src="{{ fields.section_team_image|media }}" alt="">
+                    {% else %}
+                    <img src="{{ 'assets/images/img/240x300.png'|theme }}" alt="">
+                    {% endif %}
+                    <div class="team-details">
+                        <div class="overlay"></div>
+                        <div class="team-inner">
+                            <h4 class="team-title">{{ fields.section_team_title }}</h4>
+                            <p class="team-subtitle">{{ fields.section_team_subtitle }}</p>
+                            <ul class="social-list">
+                                <li class="facebook"><a href="{{ fields.section_team_facebook }}"><i class="fa fa-facebook"></i></a></li>
+                                <li class="twitter"><a href="{{ fields.section_team_twitter }}"><i class="fa fa-twitter"></i></a></li>
+                                <li class="google-plus"><a href="{{ fields.section_team_googleplus }}"><i class="fa fa-google-plus"></i></a></li>
+                                <li class="linkedin"><a href="{{ fields.section_team_linkedin }}"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                            <p class="team-desc">{{ fields.section_team_desc }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

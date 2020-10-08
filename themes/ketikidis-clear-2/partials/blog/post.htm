@@ -1,0 +1,226 @@
+description = "Post"
+
+[viewBag]
+
+[registerVisit]
+
+[relatedPosts]
+slug = "{{ :slug }}"
+results = 3
+
+[nextAndPrev]
+category = "noFilter"
+postPage = "blog/blog-post"
+
+[ssbuttons]
+fa = "no"
+twitter = 1
+facebook = 1
+google+ = 1
+stumbleupon = 1
+linkedin = 1
+order_twitter = 1
+order_facebook = 2
+order_google+ = 3
+order_stumbleupon = 4
+order_linkedin = 5
+==
+<section class="blog-single {% if this.theme.blog_post_transheader and this.theme.blog_post_type == 'type2' %}transheader{% endif %}">
+    {% set post = blogPost.post %}
+    <div class="blog-post" data-aos="zoom-in" data-aos-delay="300">
+        {% if this.theme.blog_post_type == 'type1' %}
+        <div class="post-thumb">
+            {% if post.featuredvideo.hasVideo %}
+            <div class="video-wrapper">{{ post.featuredvideo.iframe_content|raw }}</div>
+            {% elseif post.featured_images.count == 1 %}
+            <a href="{{ post.url }}">
+            <img src="{{ post.featured_images.first.getThumb(1200, 564, 'crop') }}" alt="{{ image.description }}"/>
+            </a>       
+            {% elseif post.featured_images.count > 1 %}
+            <div class="post-gallery owl-carousel owl-theme">
+                {% for image in post.featured_images %}
+                <div class="item">
+                    <a href="{{ post.url }}">
+                    <img src="{{ image.getThumb(1200, 564, 'crop') }}" alt="{{ image.description }}"/>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <a href="{{ post.url }}">
+            <img src="{{ 'assets/images/img/1200x564.png'|theme }}" />
+            </a>
+            {% endif %}
+        </div>
+        {% endif %}
+        <div class="post-content">
+            {% if this.theme.blog_post_type == 'type1' %}
+            <div class="blog-meta">
+                <ul>
+                    {% for category in post.categories %}
+                    <li><i class="lnr lnr-tag"></i> <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}</li>
+                    {% endfor %}
+                    <li><i class="lnr lnr-calendar-full"></i> {{ post.published_at|date('M d, Y') }}</li>
+                    <li><i class="lnr lnr-user"></i> {{ post.user.first_name}}</li>
+                    {% if this.theme.settings_disqus %}
+                    <li><i class="lnr lnr-bubble"></i> <a href="{{ post.url }}#disqus_thread">Comments</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            {% endif %}
+            <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            <p>{{ post.content_html|raw }}</p>
+        </div>
+        <div class="post-line"><hr></div>
+            <div class="blog-data">
+                <div class="blog-tags">
+                    <span><i class="lnr lnr-tag"></i></span>
+                    {% for tag in post.tags %}
+                    <a href="{{ '/tag' }}/{{ tag.slug }}">{{ tag.name }}</a>
+                    {% endfor %}
+                </div>
+                <div class="blog-share">
+                    {% if this.theme.settings_social %}
+                    {% for button in ssbuttons.property('buttons_order') %}
+                    {% if(ssbuttons.property(button)) %}
+                    <a href="{{ ssbuttons.property('buttons_parameters')[button]['href'] }}" title="{{ ssbuttons.property('buttons_parameters')[button]['title'] }}" target="_blank">
+                        <i class="{{ ssbuttons.property('buttons_parameters')[button]['icon'] }}"></i>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                    {% if ssbuttons.property('js') %}
+                    <script src="/plugins/martin/ssbuttons/assets/js/ssbuttons.js"></script>
+                    {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+    </div>
+    {% if this.theme.blog_post_gallery %}
+    <div class="blog-gallery" data-aos="zoom-in" data-aos-delay="300">
+        <h4>Post Gallery</h4>
+        {% if post.featured_images.count > 0 %}
+        <div id="post-gallery-items" class="owl-carousel owl-theme post-gallery-popup">
+            {% for image in post.featured_images %}
+            <div class="item">
+                <div class="post-gallery-item">
+                    <a href="{{ image.getThumb(1200, 'auto') }}" title="{{ image.title }}"><i class="lnr lnr-link"></i></a>
+                    <img src="{{ image.getThumb(200, 150, 'crop') }}" alt="{{ image.title }}"/>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+    {% if this.theme.blog_post_similar %}
+    <div class="similar-posts" data-aos="zoom-in" data-aos-delay="300">
+        <h4>Similar Posts</h4>
+        <div class="row justify-content-md-center">
+            {% set posts = relatedPosts.posts %}
+            {% for post in posts %}
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 blog-item">
+                <div class="blog-item-wrapper">
+                    <div class="blog-item-img">
+                        {% if post.featured_images.count > 0 %}
+                        <img src="{{ post.featured_images.first.getThumb(350, 180, 'crop') }}" alt="{{ image.description }}"/>
+                        <a class="post-link" href="{{ post.url }}"><i class="lnr lnr-link"></i></a>     
+                        {% else %}
+                        <img src="{{ 'assets/images/img/350x180.png'|theme }}" />
+                        <a class="post-link" href="{{ post.url }}"><i class="lnr lnr-link"></i></a>
+                        {% endif %}
+                    </div>
+                    <div class="blog-item-text">
+                        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                        <div class="meta-tags">
+                            <span class="date"><i class="lnr lnr-calendar-full"></i>{{ post.published_at|date('M d, Y') }}</span>
+                        </div>
+                        <!--<p>{# html_limit(post.summary, 50)|raw #}</p>-->
+                        <!--<a href="{# post.url #}" class="btn btn-common btn-rm">Read More</a>-->
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">{{ noPostsMessage }}</div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    {% if this.theme.settings_disqus %}
+    <div class="blog-comment" data-aos="zoom-in" data-aos-delay="300">
+        <h4>Comments</h4>
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+            /*
+            var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://{{ this.theme.settings_disqus_url }}/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+    {% endif %}
+    {% if this.theme.blog_post_navigation %}
+    {% set prev = nextAndPrev.prevPost %}
+    {% set next = nextAndPrev.nextPost %}
+    <div class="next-prev clearfix">
+        <ul>
+            <li class="previous">
+                <a href="{{prev.url}}" rel="prev" title="{{ prev.title }}">
+                    {% if this.theme.fonts_lineicons %}
+                    <i class="lnr lnr-chevron-left"></i> 
+                    {% else %}
+                    <i class="fa fa-chevron-left"></i> 
+                    {% endif %}
+                    <div class="navigation-detail">
+                        <span>Previous Post</span>
+                        <strong>{{ prev.title }}</strong>
+                        <span class="small">
+                            {% if date(prev.published_at) > date('-7days') %}
+                            {{ prev.published_at | time_diff }}
+                            {% else %}
+                            <time datetime="{{ prev.published_at|date('Y-m-d\TH:i:sP') }}">
+                                <!--<i class="fa fa-ellipsis-h" aria-hidden="true"></i>--> {{ prev.published_at | strftime('%A') }}, {{ prev.published_at | strftime('%e %B %Y') }}
+                            </time>
+                            {% endif %}
+                            <meta itemprop="datePublished" content="{{ prev.published_at|date('Y-m-dTH:i:sZ') }}"/>
+                        </span>
+                    </div>
+                </a>
+            </li>
+            <li class="next">
+                <a href="{{next.url}}" rel="next" title="{{ next.title }}">
+                    {% if this.theme.fonts_lineicons %}
+                    <i class="lnr lnr-chevron-right"></i> 
+                    {% else %}
+                    <i class="fa fa-chevron-right"></i> 
+                    {% endif %}
+                    <div class="navigation-detail">
+                        <span>Next Post</span>
+                        <strong>{{ next.title }}</strong>
+                        <span class="small">
+                            {% if date(next.published_at) > date('-7days') %}
+                            {{ next.published_at | time_diff }}
+                            {% else %}
+                            <time datetime="{{ next.published_at|date('Y-m-d\TH:i:sP') }}">
+                                <!--<i class="fa fa-ellipsis-h" aria-hidden="true"></i>--> {{ next.published_at | strftime('%A') }}, {{ next.published_at | strftime('%e %B %Y') }}
+                            </time>
+                            {% endif %}
+                            <meta itemprop="datePublished" content="{{ next.published_at|date('Y-m-dTH:i:sZ') }}"/>
+                        </span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    {% endif %}
+</section>

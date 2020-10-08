@@ -1,0 +1,28 @@
+description = "Clients Section"
+
+[viewBag]
+==
+<div id="clients" class="section" style="background-color: {{ data.section_clients_bg }};">
+    {% if data.section_clients_container %}
+    <div class="{{ data.section_clients_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="section-header" data-aos="zoom-in" data-aos-delay="300">
+            <h2 class="section-title">{{ data.section_clients_header }}</h2>
+            <hr class="lines">
+            <p class="section-subtitle">{{ data.section_clients_subheader }}</p>
+        </div>
+        <div class="owl-carousel owl-theme" id="clients-scroller">
+            {% for fields in data.section_clients %}
+            <div class="client-item-wrapper" data-aos="zoom-in" data-aos-delay="300">
+                {% if fields.section_clients_image %}
+                <img src="{{ fields.section_clients_image|media }}" alt="{{ fields.section_clients_title }}">
+                {% else %}
+                <img src="{{ 'assets/images/img/180x122.png'|theme }}" alt="">
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

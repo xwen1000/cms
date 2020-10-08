@@ -1,0 +1,29 @@
+description = "Breadcrumbs"
+
+[viewBag]
+
+[staticBreadcrumbs]
+==
+<div class="page-breadcrumb-section">
+{% if this.theme.layout_container %}
+<div class="{{ this.theme.layout_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="row" data-aos="zoom-in" data-aos-delay="300">
+            <div class="page-breadcrumb-area">
+                <div class="page-breadcrumb-content">
+                    {% if breadcrumbs %}
+                    <ol class="breadcrumb">
+                        {% for breadcrumb in breadcrumbs %}
+                        <li class="breadcrumb-item {{ breadcrumb.isActive ? 'active' : '' }}">
+                            <a href="{{ breadcrumb.url }}">{{ breadcrumb.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ol>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

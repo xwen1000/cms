@@ -1,0 +1,88 @@
+description = "Scripts"
+
+[viewBag]
+==
+<!-- Vendor JS -->
+<script src="{{ [
+   'assets/vendor/jquery/jquery-min.js',
+   'assets/vendor/bootstrap/js/popper.min.js',
+   'assets/vendor/bootstrap/js/bootstrap.min.js',
+   'assets/vendor/shuffle/shuffle.min.js',
+   'assets/vendor/waypoints/waypoints.min.js',
+   'assets/vendor/owl-carousel/js/owl.carousel.min.js',
+   'assets/vendor/counterup/jquery.counterup.min.js',
+   'assets/vendor/magnific-popup/js/jquery.magnific-popup.min.js',
+   'assets/vendor/vide/jquery.vide.min.js'
+   ]|theme }}"></script>
+
+<!-- Addon JS -->
+{% if this.theme.aos_js %}
+<script type="text/javascript" src="{{ 'assets/vendor/aos/js/aos.js'|theme }}"></script>
+<script>
+   AOS.init({
+     duration: 1200,
+     once: true
+   })
+</script>
+{% endif %}
+
+{% if this.theme.stickymenu_js %}
+<script type="text/javascript" src="{{ 'assets/vendor/stickymenu/stickymenu.js'|theme }}"></script>
+{% endif %}
+
+{% if this.theme.smoothscroll_js %}
+<script type="text/javascript" src="{{ 'assets/vendor/smoothscroll/SmoothScroll.min.js'|theme }}"></script>
+{% endif %}
+
+{% if this.theme.parallax_js %}
+<script type="text/javascript" src="{{ 'assets/vendor/jarallax/jarallax.min.js'|theme }}"></script>
+<script>
+    $('.jarallax').jarallax({
+        speed: 0.5,
+        disableParallax: function () {
+        return /iPad|iPhone|iPod|Android/.test(navigator.userAgent);
+        }
+    });
+</script>
+{% endif %}
+
+{% if this.theme.transheader_js %}
+<script>
+	$(document).ready(function(){
+        if($('#owlcarousel-area').hasClass("transheader")) 
+            $("header").addClass("transparent");
+        if($('#header-area').hasClass("transheader")) 
+            $("header").addClass("transparent");
+        if($('.blog-single').hasClass("transheader")) 
+            $("header").addClass("transparent");
+	});
+</script>
+{% endif %}
+
+{% if this.theme.particles_js %}
+<script type="text/javascript" src="{{ 'assets/vendor/particles/particles.min.js'|theme }}"></script>
+<script type="text/javascript" src="{{ 'assets/vendor/particles/default.js'|theme }}"></script>
+<script>
+	$(document).ready(function(){
+        if($('#particles-js').hasClass("particles")) {
+        "use strict";particleDefault()
+        }
+	});
+</script>
+{% endif %}
+
+<!-- Main JS -->
+<script type="text/javascript" src="{{ 'assets/js/main.js'|theme }}"></script>
+
+<!-- Core JS -->
+{% if this.theme.framework_js %}
+{% framework extras %}
+{% endif %}
+{% scripts %}
+
+<!-- Custom JS -->
+{% if this.theme.custom_js %}
+<script>
+   {{ this.theme.custom_js|raw }}
+</script>
+{% endif %}

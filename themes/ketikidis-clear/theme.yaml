@@ -1,0 +1,19 @@
+name: "Clear"
+description: "Clear - CRUD Generator Modular Octobercms Theme"
+author: Charis Ketikidis
+homepage: "https://www.ketikidis.com"
+code: clear
+form: config/fields.yaml
+require:
+    - Rainlab.User
+    - Rainlab.Blog
+    - Rainlab.Pages
+    - Rainlab.Mailchimp
+    - PolloZen.MostVisited
+    - OFFLINE.SiteSearch
+    - Rahman.BlogTags
+    - Martin.Ssbuttons
+    - GrofGraf.ContactMe
+    - VojtaSvoboda.TwigExtensions
+    - PolloZen.NextPrevPost
+    - Simplicitylab.BlogFeaturedVideo

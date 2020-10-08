@@ -1,0 +1,79 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+  fields:
+      api_key:
+        label: Api Key
+        commentHtml: true
+        comment: Google Maps <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">Api Key</a>
+        type: text
+        required: true
+        tab: General
+      latitude:
+        label: Latitude
+        comment: Map center latitude
+        type: number
+        required: true
+        default: 53.350140
+        tab: General
+      longtitude:
+        label: Longtitude
+        comment: Map center longtitude
+        type: number
+        required: true
+        default: -6.266155
+        tab: General
+      height:
+        label: Height
+        comment: "Map height (with measurement unit;example: 400px)"
+        type: text
+        default: 400px
+        required: true
+        tab: General
+      width:
+        label: Width
+        comment: "Map width (with measurement unit;example: 100%)"
+        type: text
+        default: 100%
+        required: true
+        tab: General
+      zoom:
+        label: Zoom
+        comment: Map zoom
+        type: number
+        default: 15
+        required: true
+        tab: General
+      map_type:
+        label: Map Type
+        comment: Type of map
+        type: dropdown
+        default: roadmap
+        required: true
+        tab: General
+        options:
+          roadmap: Roadmap
+          satellite: Satellite
+          hybrid: Hybrid
+          terrain: Terrain
+      show_marker:
+        label: Show Marker
+        comment: Show marker in the center of the map
+        type: switch
+        default: 0
+        tab: Marker
+      marker_image:
+        label: Marker Image
+        comment: Image for marker with max width and height of 100px (if empty default marker will be used)
+        type: fileupload
+        imageHeight: 40
+        mode: image
+        tab: Marker
+      directions_button_text:
+        label: Directions Button Text
+        comment: Text for Get Directions button (to show directions, you have to have HTTPS and show marker enabled)
+        type: "text"
+        default: Get Directions
+        tab: Directions

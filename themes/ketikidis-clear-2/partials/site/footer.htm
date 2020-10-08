@@ -1,0 +1,61 @@
+description = "Footer"
+
+[viewBag]
+
+[staticMenu]
+
+[tags]
+results = 15
+sortOrder = "created_at desc"
+emptyTag = 0
+==
+{% if this.theme.layout_container %}
+<div class="{{ this.theme.layout_container }}">
+{% else %}
+<div class="container">
+    {% endif %}
+    <div class="row section">
+        <div class="footer-widget col-md-3 col-sm-6 col-xs-12" data-aos="zoom-in" data-aos-delay="300">
+            <h3 class="widget-title">Contact</h3>
+            <ul class="contact-list">
+                {% for fields in this.theme.footer_contact %}
+                <li>
+                    <i class="{{ fields.footer_contact_icon }}"></i> 
+                    <span class="icon"> {{ fields.footer_contact_info|raw }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="footer-widget col-md-3 col-sm-6 col-xs-12" data-aos="zoom-in" data-aos-delay="400">
+            <h3 class="widget-title">Menu</h3>
+            {% if staticMenu.menuItems %}
+            <ul>
+                {% partial staticMenu ~ "::items" items=staticMenu.menuItems %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="footer-widget col-md-3 col-sm-6 col-xs-12" data-aos="zoom-in" data-aos-delay="500">
+            <h3 class="widget-title">Blog Tags</h3>
+            {% set tags = tags.tags %}
+            <div class="tagcloud">
+                {% for tag in tags %}
+                <a href="{{ '/tag' }}/{{ tag.slug }}" class="tag-link">{{ tag.name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="footer-widget col-md-3 col-sm-6 col-xs-12" data-aos="zoom-in" data-aos-delay="600">
+            <h3 class="widget-title">Newsletter</h3>
+            <div class="block-subscribe">
+                <p>{{ this.theme.footer_subscribe }}</p>
+                <div id="{{ mailSignup.id }}container">
+                    <form
+                        data-request="{{ mailSignup }}::onSignup"
+                        data-request-update="'{{ mailSignup }}::result': '#{{ mailSignup.id }}container'" class="subscribe">
+                        <input name="email" type="text" class="form-control" placeholder="john.smith@example.com"/>
+                        <button class="btn btn-common" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

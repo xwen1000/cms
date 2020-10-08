@@ -1,0 +1,17 @@
+description = "产品列表"
+
+[viewBag]
+==
+{% for p in products %}
+                <div class="col-md-4 p-4 ml-0 mr-0">
+                    <div class="image-box ">
+                        <a href="/blog/post/{{p.slug}}">
+                        <img style="max-width: 100%;height: auto;display:block;" src="{{ p.featured_images.first.getThumb(300,150,'crop')}}" alt="">
+                        </a>
+                    </div>
+                    
+                    <div class="mt-2">
+                        <a href="/blog/post/{{p.slug}}">{{p.title}}</a> <a class="pull-right order-btn" style="color:red;" productName="{{p.title}}" >查詢</a>
+                    </div>
+                </div>
+            {% endfor %}

@@ -1,0 +1,57 @@
+description = "Tabs Section"
+
+[viewBag]
+==
+<section class="tabs-section section" style="background-color: {{ data.section_tabs_bg }};">
+    {% if data.section_tabs_container %}
+    <div class="{{ data.section_tabs_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="section-header" data-aos="zoom-in" data-aos-delay="300">
+            <h2 class="section-title">{{ data.section_tabs_header }}</h2>
+            <hr class="lines">
+            <p class="section-subtitle">{{ data.section_tabs_subheader }}</p>
+        </div>
+        <div class="row" data-aos="zoom-in" data-aos-delay="300">
+            <div class="col-md-6 tabs-intro-image 
+            {% if data.section_tabs_image_position == 'left' %}order-1{% endif %}
+            {% if data.section_tabs_image_position == 'right' %}order-2{% endif %}
+            ">
+                {% if data.section_tabs_image %}
+                <img src="{{ data.section_tabs_image|media }}" alt="">
+                {% else %}
+                <img src="{{ 'assets/images/img/600x350.png'|theme }}" alt="">
+                {% endif %}
+            </div>
+            <div class="col-md-6
+            {% if data.section_tabs_image_position == 'left' %}order-2{% endif %}
+            {% if data.section_tabs_image_position == 'right' %}order-1{% endif %}
+            ">
+                <h3 class="tabs-title">{{ data.section_tabs_title }}</h3>
+                <p>{{ data.section_tabs_desc }}</p>
+                <div id="default-tab" class="mt-10">
+                    <ul class="nav nav-tabs" role="tablist">
+                        {% for fields in data.section_tabs %}
+                        <li class="nav-item">
+                            <a {% if loop.index0 == 0 %} class="nav-link active" {% else %} class="nav-link" {% endif %} data-toggle="tab" href="#tab-{{ fields.section_tabs_title|slug }}" role="tab" aria-controls="{{ fields.section_tabs_title|slug }}">{{ fields.section_tabs_title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="tab-content">
+                        {% for fields in data.section_tabs %}
+                        {% if loop.first %}
+                        <div class="tab-pane active" id="tab-{{ fields.section_tabs_title|slug }}" role="tabpanel">
+                            {% else %}
+                            <div class="tab-pane" id="tab-{{ fields.section_tabs_title|slug }}" role="tabpanel">
+                                {% endif %}
+                                {{ fields.section_tabs_desc|raw }}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

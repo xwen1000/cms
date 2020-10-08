@@ -1,0 +1,51 @@
+description = "About Section"
+
+[viewBag]
+==
+<section class="about-section section" style="background-color: {{ data.section_about_bg }};">
+    {% if data.section_about_container %}
+    <div class="{{ data.section_about_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="row">
+            <div class="col-md-4 col-sm-12 col-xs-12 
+            {% if data.section_about_image_position == 'left' %}order-1{% endif %}
+            {% if data.section_about_image_position == 'right' %}order-2{% endif %}
+            " data-aos="zoom-in" data-aos-delay="300">
+                <div class="images">
+                    {% if data.section_about_image %}
+                    <img src="{{ data.section_about_image|media }}" alt="{{ data.section_about_title }}">
+                    {% else %}
+                    <img src="{{ 'assets/images/img/600x750.png'|theme }}" alt="{{ data.section_about_title }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-12 
+            {% if data.section_about_image_position == 'left' %}order-2{% endif %}
+            {% if data.section_about_image_position == 'right' %}order-1{% endif %}
+            " data-aos="zoom-in" data-aos-delay="300">
+                <div class="content-inner">
+                {% for fields in data.section_about_big %}
+                    <div class="about-big">
+                    <h2 class="title">{{ fields.section_about_big_title }}</h2>
+                    <div class="lead">{{ fields.section_about_big_desc|raw }}</div>
+                    </div>
+                {% endfor %}    
+                    <div class="details-list">
+                        <div class="row">
+                        {% for fields in data.section_about_small %}
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="about-small">
+                                    <h4>{{ fields.section_about_small_title }}</h4>
+                                    {{ fields.section_about_small_desc|raw }}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,24 @@
+description = "Gallery"
+
+[viewBag]
+==
+<aside class="widget gallery" data-aos="zoom-in" data-aos-delay="300">
+    <h2 class="widget-title">Gallery</h2>
+    <div class="container">
+        <div class="row text-center text-lg-left gallery-popup">
+            {% for fields in this.theme.gallery_images %}
+            <div class="col-4">
+                {% if fields.gallery_image %}
+                <a href="{{ fields.gallery_image|media }}" title="{{ fields.gallery_title }}" class="d-block mb-2 h-100">
+                <img class="img-fluid image-popup" src="{{ fields.gallery_thumb|media }}" alt="{{ fields.gallery_title }}">
+                </a>
+                {% else %}
+                <a href="{{ 'assets/images/img/800x600.png'|theme }}" title="{{ fields.gallery_title }}" class="d-block mb-2 h-100">
+                <img class="img-fluid image-popup" src="{{ 'assets/images/img/150x100.png'|theme }}" alt="{{ fields.gallery_title }}">
+                </a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</aside>

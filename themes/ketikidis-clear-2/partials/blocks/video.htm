@@ -1,0 +1,35 @@
+description = "Video Section"
+
+[viewBag]
+==
+<section class="video-promo section">
+    <div class="overlay"></div>
+    {% if data.section_video_file %}
+    <div class="video-item" 
+        data-vide-bg="{{ data.section_video_file|media }}" 
+        data-vide-options="posterType: jpg, loop: true, muted: false, position: 0% 0%">
+    </div>
+    {% else %}
+    <div class="video-item" 
+        data-vide-bg="{{ 'assets/images/video/video.mp4'|theme }}" 
+        data-vide-options="posterType: jpg, loop: true, muted: false, position: 0% 0%">
+    </div>
+    {% endif %}
+    {% if data.section_video_container %}
+    <div class="{{ data.section_video_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="row">
+            <div class="col-md-12 col-sm-12" data-aos="zoom-in" data-aos-delay="300">
+                <div class="video-promo-content text-center">
+                    <h2 class="">{{ data.section_video_header }}</h2>
+                    <p class="">{{ data.section_video_subheader }}</p>
+                    <a href="{{ data.section_video_button_url }}" class="video-popup">  
+                    <i class="{{ data.section_video_button_icon }}"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

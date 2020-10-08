@@ -1,0 +1,36 @@
+description = "Popular"
+
+[viewBag]
+
+[topPosts]
+period = 5
+category = 0
+postPerPage = 6
+postPage = "blog/blog-post"
+slug = "{{ :slug }}"
+==
+<aside class="widget popular-post" data-aos="zoom-in" data-aos-delay="300">
+    <h2 class="widget-title">Popular Post</h2>
+    {% set mostVisitedPosts = topPosts.mostVisitedPosts %}
+    <ul>
+        {% for post in mostVisitedPosts %}
+        <li>
+            <div class="media">
+                <div class="media-left">
+                    {% if post.featured_images.count > 0 %}
+                    <a href="{{ post.url }}">
+                    <img class="img-responsive" src="{{ post.featured_images.first.getThumb(75, 75, 'crop') }}" alt=""/>
+                    {% elseif post.featured_images.count < 1 %}
+                    <img class="img-responsive" src="{{ 'assets/images/img/75x75.png'|theme }}" />
+                    </a>
+                    {% endif %}
+                </div>
+                <div class="media-body">
+                    <h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
+                    <span class="published-time"><i class="fa fa-calendar"></i>{{ post.published_at|date('M d, Y') }}</span>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</aside>

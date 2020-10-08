@@ -1,0 +1,38 @@
+description = "Owl Carousel Section"
+
+[viewBag]
+==
+<div class="owlcarousel-area">
+{% if data.section_carouselowl_particles %}
+<div id="particles-js" class="particles"></div>
+{% endif %}
+<div id="owlcarousel-area" class="owl-carousel owl-theme {% if data.section_carouselowl_transheader %}transheader{% endif %}">
+{% for fields in data.section_carouselowl %}
+<div class="item">
+    <div class="overlay"></div>
+    {% if fields.section_carouselowl_type == 'owlimage' and fields.section_carouselowl_type_image is not empty %}
+    <div class="owl-image owl-lazy" data-src="{{ fields.section_carouselowl_type_image|media }}"></div>
+    {% elseif fields.section_carouselowl_type == 'owlvideo' and fields.section_carouselowl_type_video is not empty %}
+    <a class="owl-video" href="{{ fields.section_carouselowl_type_video }}"></a>
+    {% else %}
+    <div class="owl-image owl-lazy" data-src="{{ 'assets/images/img/1920x800.png'|theme }}"></div>
+    {% endif %}
+    {% if fields.section_carouselowl_type == 'owlimage' %}      
+    <div class="owlcarousel-caption">
+        {% elseif fields.section_carouselowl_type == 'owlvideo' %}
+        <div class="owlcarousel-video-caption">
+            {% else %}
+            <div class="owlcarousel-caption">
+                {% endif %}
+                <h1 class="owlcarousel-title">{{ fields.section_carouselowl_title }}</h1>
+                <p class="owlcarousel-desc">{{ fields.section_carouselowl_subtitle }}</p>
+                {% if fields.section_carouselowl_button_label %}
+                <a class="btn btn-border animated zoomIn" href="{{ fields.section_carouselowl_button_url }}">  
+                <i class="{{ fields.section_carouselowl_button_icon }}"></i>
+                {{ fields.section_carouselowl_button_label }}</a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

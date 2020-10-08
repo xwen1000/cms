@@ -1,0 +1,113 @@
+title = "Account"
+url = "/account/:code?"
+layout = "default"
+is_hidden = 0
+
+[viewBag]
+localeUrl[gr] = "/account"
+
+[account]
+redirect = "user/account"
+paramCode = "code"
+forceSecure = 0
+==
+<section class="contact-form-section section">
+    {% if this.theme.layout_container %}
+    <div class="{{ this.theme.layout_container }}">
+        {% else %}
+        <div class="container">
+            {% endif %}
+            <div class="row">
+                <div class="col-md-12 contact-info-section">
+                    {% if not user %}
+                    {% if post('register') %}
+                    <div class="jumbotron" data-aos="zoom-in" data-aos-delay="300">
+                        <h2>Thanks for registering</h2>
+                        <p>Your application has been received and you will get an email from us once you are approved to sign in.</p>
+                        <p><a href="{{ 'home'|page }}">Return to the homepage</a>
+                    </div>
+                    {% else %}
+                    <div class="row">
+                        <div class="col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                            <h3>Sign in</h3>
+                            <p>If you are already a client, sign in with you details here.</p>
+                            <form
+                                data-request="onSignin" id="userForm">
+                                <div class="form-group">
+                                    <label for="userSigninLogin" class="sr-only">{{ loginAttributeLabel }}</label>
+                                    <input name="login" type="text" class="form-control user-control" id="userSigninLogin" placeholder="Enter your {{ loginAttributeLabel|lower }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="userSigninPassword" class="sr-only">Password</label>
+                                    <input name="password" type="password" class="form-control user-control" id="userSigninPassword" placeholder="Enter your password">
+                                </div>
+                                <button type="submit" class="btn btn-common btn-md">Sign in</button>
+                            </form>
+                            <hr />
+                            <p><a href="{{ 'user/forgot-password'|page }}">Forgotten your password?</a></p>
+                        </div>
+                        <div class="col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                            <h3>Register</h3>
+                            <p>You may apply to the client area by completing this form.</p>
+                            <form
+                                data-request="onRegister" id="userForm">
+                                <input type="hidden" name="redirect" value="{{ this.page.baseFileName|page }}?register=1" />
+                                <div class="form-group">
+                                    <label for="accountEmail" class="sr-only">Full Name</label>
+                                    <input name="name" type="text" class="form-control user-control" id="accountEmail" placeholder="Enter your full name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="accountEmail" class="sr-only">Email</label>
+                                    <input name="email" type="email" class="form-control user-control" id="accountEmail" placeholder="Enter your email">
+                                </div>
+                                <h3>Account information</h3>
+                                <div class="form-group">
+                                    <label for="accountLogin" class="sr-only">Username</label>
+                                    <input name="username" type="text" class="form-control user-control" id="accountUsername" placeholder="Choose a login name to use">
+                                </div>
+                                <div class="form-group">
+                                    <label for="accountPassword" class="sr-only">Password</label>
+                                    <input name="password" type="password" class="form-control user-control" id="accountPassword" placeholder="Choose a password">
+                                </div>
+                                <button type="submit" class="btn btn-common btn-md">Register</button>
+                            </form>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% else %}
+                    <div id="userForm" data-aos="zoom-in" data-aos-delay="300">
+                        {{ form_ajax('onUpdate', { model: user }) }}
+                        <h3>Account information</h3>
+                        <div class="form-group">
+                            <label for="accountName" class="sr-only">Full Name</label>
+                            <input name="name" type="text" class="form-control user-control" id="accountName" placeholder="Your Full Name" value="{{ form_value('name') }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="accountEmail" class="sr-only">Email</label>
+                            <input name="email" type="email" class="form-control user-control" id="accountEmail" placeholder="Your Email" value="{{ form_value('email') }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="accountLogin" class="sr-only">Login</label>
+                            <input name="username" type="text" class="form-control user-control" id="accountLogin" placeholder="Your Username" value="{{ form_value('username') }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="accountPassword" class="sr-only">New Password</label>
+                            <input name="password" type="password" class="form-control user-control" id="accountPassword" placeholder="New Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="accountPasswordConfirm" class="sr-only">Confirm New Password</label>
+                            <input name="password_confirmation" type="password" class="form-control user-control" id="accountPasswordConfirm" placeholder="Confirm New Password">
+                        </div>
+                        <button type="submit" class="btn btn-common btn-md">Save</button>
+                        {{ form_close() }}
+                    </div>
+                    <br/ >
+                    <p>
+                        <a href="{{ 'clients'|staticPage }}">+ Return to client area</a>
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

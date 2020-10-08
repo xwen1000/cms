@@ -1,0 +1,31 @@
+description = "Breadcrumbs Section"
+
+[viewBag]
+
+[staticBreadcrumbs]
+==
+{% if data.section_breadcrumbs %}
+<div class="page-breadcrumb-section" style="background-color:{{ data.section_breadcrumbs_bg }};">
+    {% if data.section_breadcrumbs_container %}
+    <div class="{{ data.section_breadcrumbs_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="row">
+            <div class="page-breadcrumb-area">
+                <div class="page-breadcrumb-content">
+                    {% if breadcrumbs %}
+                    <ol class="breadcrumb">
+                        {% for breadcrumb in breadcrumbs %}
+                        <li class="breadcrumb-item {{ breadcrumb.isActive ? 'active' : '' }}">
+                            <a href="{{ breadcrumb.url }}">{{ breadcrumb.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ol>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}

@@ -1,0 +1,41 @@
+description = "Pricing Section"
+
+[viewBag]
+==
+<div id="pricing" class="section pricing-section" style="background-color:{{ data.section_pricing_bg }};">
+    {% if data.section_pricing_container %}
+    <div class="{{ data.section_pricing_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="section-header" data-aos="zoom-in" data-aos-delay="300">
+            <h2 class="section-title">{{ data.section_pricing_header }}</h2>
+            <hr class="lines">
+            <p class="section-subtitle">{{ data.section_pricing_subheader }}</p>
+        </div>
+        <div class="row pricing-tables">
+            {% for fields in data.section_pricing %}
+            <div class="col-md-4 col-sm-12 col-xs-12" data-aos="zoom-in" data-aos-delay="300">
+                <div class="pricing-table {% if fields.section_pricing_top %}table-top{% endif %}">
+                    <div class="icon">   
+                        <i class="{{ fields.section_pricing_icon }}"></i>
+                    </div>
+                    <div class="pricing-details">
+                        <h2>{{ fields.section_pricing_title }}</h2>
+                        <span>${{ fields.section_pricing_price }}</span>
+                        <ul>
+                            <li>{{ fields.section_pricing_feature1 }}</li>
+                            <li>{{ fields.section_pricing_feature2 }}</li>
+                            <li>{{ fields.section_pricing_feature3 }}</li>
+                            <li>{{ fields.section_pricing_feature4 }}</li>
+                        </ul>
+                    </div>
+                    <div class="plan-button">
+                        <a href="{{ fields.section_pricing_button_url }}" class="btn btn-common">{{ fields.section_pricing_button_label }}</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

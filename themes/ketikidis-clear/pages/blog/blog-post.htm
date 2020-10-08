@@ -1,0 +1,64 @@
+title = "Blog Post"
+url = "/blog/post/:slug"
+layout = "default"
+is_hidden = 0
+
+[viewBag]
+localeUrl[gr] = "/blog-post"
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog/blog-category"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/blog-category"
+==
+<style>
+.container{
+    max-width:1536px;
+    }
+p,ul,ol{
+    font-size: 24px
+    }
+</style>
+
+<section class="blog-section {% if this.theme.blog_post_type == 'type2' %}py-5{% endif %} ">
+    <div class="{{ this.theme.layout_blogpost_container }}">
+        <div class="row {% if this.theme.layout_blogpost_sidebar == 'empty' %}justify-content-md-center{% endif %}">
+            <div class="
+                {% if this.theme.layout_blogpost_sidebar == 'left' %}order-2{% endif %} 
+                {% if this.theme.layout_blogpost_sidebar == 'right' %}order-1{% endif %} 
+                {% if this.theme.layout_blogpost_sidebar == 'empty' %}col-md-10 
+                {% else %}
+                {% if this.theme.layout_blogpost_main == 'big' %}col-md-9{% endif %} 
+                {% if this.theme.layout_blogpost_main == 'normal' %}col-md-8{% endif %} 
+                {% if this.theme.layout_blogpost_main == 'small' %}col-md-7{% endif %} 
+                {% if this.theme.layout_blogpost_main == 'tiny' %}col-md-6{% endif %} 
+                {% endif %}
+                ">
+                {% partial "blog/newpost" %}    
+            </div>
+            {% if this.theme.layout_blogpost_sidebar == 'left' or this.theme.layout_blogpost_sidebar == 'right' %}
+            <div class="
+                {% if this.theme.layout_blogpost_sidebar == 'left' %}order-1{% endif %} 
+                {% if this.theme.layout_blogpost_sidebar == 'right' %}order-2{% endif %} 
+                {% if this.theme.layout_blogpost_main == 'big' %}col-md-3{% endif %} 
+                {% if this.theme.layout_blogpost_main == 'normal' %}col-md-4{% endif %} 
+                {% if this.theme.layout_blogpost_main == 'small' %}col-md-5{% endif %} 
+                {% if this.theme.layout_blogpost_main == 'tiny' %}col-md-6{% endif %} 
+                ">
+                <div class="sidebar-area">
+                    {% if this.theme.blog_sidebar_search %}{% partial "blog/search" %}{% endif %}
+                    {% if this.theme.blog_sidebar_categories %}{% partial "blog/categories" %}{% endif %}
+                    {% if this.theme.blog_sidebar_popular %}{% partial "blog/popular" %}{% endif %}
+                    {% if this.theme.blog_sidebar_tags %}{% partial "blog/tags" %}{% endif %}
+                    {% if this.theme.blog_sidebar_gallery %}{% partial "blog/gallery" %}{% endif %}
+                    {% if this.theme.blog_sidebar_subscribe %}{% partial "blog/subscribe" %}{% endif %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

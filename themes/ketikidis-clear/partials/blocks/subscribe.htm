@@ -1,0 +1,31 @@
+description = "Subscribe Section"
+
+[viewBag]
+
+[mailSignup]
+==
+<div id="subscribe" class="section" style="background-color:{{ data.section_subscribe_bg }};">
+    {% if data.section_subscribe_container %}
+    <div class="{{ data.section_subscribe_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="section-header" data-aos="zoom-in" data-aos-delay="300">
+            <h2 class="section-title">{{ data.section_subscribe_header }}</h2>
+            <hr class="lines">
+            <p class="section-subtitle">{{ data.section_subscribe_subheader }}</p>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-8" data-aos="zoom-in" data-aos-delay="300">
+                <div id="{{ mailSignup.id }}container2">
+                    <form class="text-center form-inline"
+                        data-request="{{ mailSignup }}::onSignup"
+                        data-request-update="'{{ mailSignup }}::result': '#{{ mailSignup.id }}container2'">
+                        <input class="mb-20 form-control" name="email" type="text" placeholder="Your Email Address">
+                        <button class="sub_btn" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

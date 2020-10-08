@@ -1,0 +1,78 @@
+description = "Features Section"
+
+[viewBag]
+==
+<section id="features" class="section" style="background-color:{{ data.section_features_bg }};">
+    {% if data.section_features_container %}
+    <div class="{{ data.section_features_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="section-header" data-aos="zoom-in" data-aos-delay="300">
+            <h2 class="section-title">{{ data.section_features_header }}</h2>
+            <hr class="lines">
+            <p class="section-subtitle">{{ data.section_features_subheader }}</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 
+                {% if data.section_features_image_position == 'left' %}order-2{% endif %}
+                {% if data.section_features_image_position == 'center' %}order-1{% endif %}
+                {% if data.section_features_image_position == 'right' %}order-1{% endif %}
+                ">
+                {% for fields in data.section_features1 %}
+                <div class="
+                    {% if fields.section_features1_align == 'left' %}content-right text-left
+                    {% elseif fields.section_features1_align == 'right' %}content-left text-right
+                    {% else %}content-left text-right{% endif %}
+                    " data-aos="zoom-in" data-aos-delay="300">
+                    <div class="box-item">
+                        <span class="icon">  
+                        <i class="{{ fields.section_features1_icon }}"></i>
+                        </span>
+                        <div class="text">
+                            <h4>{{ fields.section_features1_title }}</h4>
+                            <p>{{ fields.section_features1_desc }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 
+                {% if data.section_features_image_position == 'left' %}order-1{% endif %}
+                {% if data.section_features_image_position == 'center' %}order-2{% endif %}
+                {% if data.section_features_image_position == 'right' %}order-3{% endif %}
+                ">
+                <div class="show-box" data-aos="zoom-in" data-aos-delay="300">
+                    {% if data.section_features_image %}
+                    <img src="{{ data.section_features_image|media }}" alt="">
+                    {% else %}
+                    <img src="{{ 'assets/images/img/600x600.png'|theme }}" alt="">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 
+                {% if data.section_features_image_position == 'left' %}order-3{% endif %}
+                {% if data.section_features_image_position == 'center' %}order-3{% endif %}
+                {% if data.section_features_image_position == 'right' %}order-2{% endif %}
+                ">
+                {% for fields in data.section_features2 %}
+                <div class="
+                    {% if fields.section_features2_align == 'left' %}content-right text-left
+                    {% elseif fields.section_features2_align == 'right' %}content-left text-right
+                    {% else %}content-right text-left{% endif %}
+                    " data-aos="zoom-in" data-aos-delay="300">
+                    <div class="box-item">
+                        <span class="icon">   
+                        <i class="{{ fields.section_features2_icon }}"></i>
+                        </span>
+                        <div class="text">
+                            <h4>{{ fields.section_features2_title }}</h4>
+                            <p>{{ fields.section_features2_desc }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

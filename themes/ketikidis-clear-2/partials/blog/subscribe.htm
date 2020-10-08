@@ -1,0 +1,22 @@
+description = "Subscribe"
+
+[viewBag]
+
+[mailSignup]
+==
+<aside class="widget subscribe-widget" data-aos="zoom-in" data-aos-delay="300">
+    <h2 class="widget-title">Subscribe</h2>
+    <div class="subscribe-area">
+        <p>Subscribe to our news letter to get regular update and blog posts.</p>
+        <div id="{{ mailSignup.id }}container">
+            <form
+                data-request="{{ mailSignup }}::onSignup"
+                data-request-update="'{{ mailSignup }}::result': '#{{ mailSignup.id }}container'" class="form-group">
+                <div class="input-group">
+                    <input name="email" type="text" class="form-control input-block-level" placeholder="john.smith@example.com"/>
+                </div>
+                <button class="mt-2 btn btn-common btn-block" type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+</aside>

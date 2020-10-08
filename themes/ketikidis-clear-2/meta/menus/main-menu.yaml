@@ -1,0 +1,11 @@
+name: 'Main menu'
+items:
+    -
+        title: 产品中心
+        type: cms-page
+        code: ''
+        reference: blog/blog
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

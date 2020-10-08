@@ -1,0 +1,30 @@
+description = "Services Section"
+
+[viewBag]
+==
+<section id="services" class="section" style="background-color:{{ data.section_services_bg }};">
+    {% if data.section_services_container %}
+    <div class="{{ data.section_services_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="section-header" data-aos="zoom-in" data-aos-delay="300">
+            <h2 class="section-title">{{ data.section_services_header }}</h2>
+            <hr class="lines">
+            <p class="section-subtitle">{{ data.section_services_subheader }}</p>
+        </div>
+        <div class="row">
+            {% for fields in data.section_services %}
+            <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
+                <div class="item-boxes pt-5" style="min-height:194px;background:url({{fields.section_services_icon|media}}) no-repeat;background-size:cover;">
+                </div>
+                <div>
+                    <h4 style="color:red;text-align:center;font-size:24px;padding:5px 5px 30px 5px;">{{ fields.section_services_title }}</h4>
+                    <div class="item-line"></div>
+                    <p style="color:white">{{ fields.section_services_desc }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,62 @@
+description = "default"
+
+[viewBag]
+==
+<h2 class="text-center">查詢</h2>
+<p class="text-center"> 產品名稱:<span id='productTitle'></span></p>
+<form data-request="{{ __SELF__ }}::onFormSubmit" style='padding:20px;'>
+
+    {{ form_token() }}
+
+    <div id="{{ __SELF__ }}_forms_flash"></div>
+    <div class="row">
+        {#
+        <div class="col-sm-6">
+            <div class="form-group">
+               label for="name">name:</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Name">
+            </div>
+        </div> 
+        #}
+        <input type="hidden" name="productName" id="productName" value="">
+        <div class="col-sm-6">
+            <div class="form-group">
+               {# <label for="name">Name:</label>#}
+                <input type="text" id="name" name="name" class="form-control" placeholder="姓名">
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                {#<label for="email">Email:</label>#}
+                <input type="text" id="email" name="email" class="form-control" placeholder="電子郵箱">
+            </div>
+        </div>
+        <div class="clear-fix"></div>
+        <div class="col-sm-12">
+            <div class="form-group">
+               {# <label for="subject">Messages:</label>#}
+                <textarea id="comments" name="comments" rows="8" cols="80" class="form-control" placeholder="留言"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <p class="text-center">
+    <button id="simpleContactSubmitButton" type="submit" class="btn btn-primary">發送</button>
+    </p>
+
+</form>
+<script>
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        // console.log(reg);
+        var r = decodeURI(window.location.search).substr(1).match(reg);  //匹配目标参数
+        // console.log(window.location.search.substr(1).match(reg));
+        if (r != null) return unescape(r[2]);
+        return null; //返回参数值
+      }
+      let pn = getUrlParam('productName');
+      let pt = document.getElementById('productTitle')
+      pt.innerText = pn
+      let pninput = document.getElementById('productName')
+      pninput.value=pn
+</script>

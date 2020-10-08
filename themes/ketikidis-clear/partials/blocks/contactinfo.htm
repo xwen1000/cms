@@ -1,0 +1,65 @@
+description = "Contact Info Section"
+
+[viewBag]
+==
+<div id="contactinfo" class="section contactinfo-section" style="background-color:{{ data.section_contactinfo_bg }};">
+    {% if data.section_contactinfo_container %}
+    <div class="{{ data.section_contactinfo_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="row">
+            <div class="col-md-4 col-sm-12 col-xs-12" data-aos="zoom-in" data-aos-delay="300">
+                <div class="contactinfo-table">
+                    <div class="contactinfo-details">
+                        <h2>{{ data.section_contactinfo_address_title }}</h2>
+                        <ul>
+                            {% for fields in data.section_contactinfo_address %}
+                            <li>
+                                <span class="icon">   
+                                <i class="{{ fields.section_contactinfo_address_icon }}"></i>
+                                </span>
+                                {{ fields.section_contactinfo_address_info }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12" data-aos="zoom-in" data-aos-delay="400">
+                <div class="contactinfo-table">
+                    <div class="contactinfo-details">
+                        <h2>{{ data.section_contactinfo_hours_title }}</h2>
+                        <ul>
+                            {% for fields in data.section_contactinfo_hours %}
+                            <li>
+                                <span class="icon">  
+                                <i class="{{ fields.section_contactinfo_hours_icon }}"></i>
+                                </span>
+                                {{ fields.section_contactinfo_hours_info }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12" data-aos="zoom-in" data-aos-delay="500">
+                <div class="contactinfo-table">
+                    <div class="contactinfo-details">
+                        <h2>Social</h2>
+                        <ul>
+                            {% for fields in this.theme.social_media %}
+                            <li>
+                                <span class="icon">
+                                <i class="{{ fields.social_media_icon }}"></i>
+                                </span>
+                                <a href="{{ fields.social_media_url }}">{{ fields.social_media_name }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

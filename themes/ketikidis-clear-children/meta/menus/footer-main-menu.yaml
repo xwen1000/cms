@@ -1,0 +1,83 @@
+name: 'Footer main menu'
+items:
+    -
+        title: 網站首頁
+        nesting: '0'
+        type: static-page
+        code: ''
+        reference: index
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 集團簡介
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: aboutyucai-2
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 工廠概覽
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: works
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 作品展示
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: show-masterpiece
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 新闻中心
+        type: cms-page
+        code: ''
+        reference: company-news
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 產品中心
+        type: cms-page
+        code: ''
+        reference: product-center
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 聯繫我們
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: service-contact
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

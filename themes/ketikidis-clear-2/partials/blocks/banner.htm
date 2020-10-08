@@ -1,0 +1,33 @@
+description = "Banner Section"
+
+[viewBag]
+==
+<section id="download" class="section jarallax" style="background-image: url(
+    {% if data.section_banner_image %}
+    {{ data.section_banner_image|media }}
+    {% else %}
+    {{ 'assets/images/img/1920x500.png'|theme }}
+    {% endif %}
+    );">
+    <div class="overlay"></div>
+    {% if data.section_banner_container %}
+    <div class="{{ data.section_banner_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="section-header" data-aos="zoom-in" data-aos-delay="300">
+            <h2 class="section-title">{{ data.section_banner_header }}</h2>
+            <hr class="lines">
+            <p class="section-subtitle">{{ data.section_banner_subheader }}</p>
+        </div>
+        <div class="row">
+            <div class="col-md-12" data-aos="zoom-in" data-aos-delay="300">
+                <div class="download-area text-center">
+                    <a href="{{ data.section_banner_button_url }}" class="btn btn-border">  
+                    <i class="{{ data.section_banner_button_icon }}"></i>
+                    {{ data.section_banner_button_label }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

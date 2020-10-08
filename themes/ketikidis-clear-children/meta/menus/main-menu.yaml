@@ -1,0 +1,172 @@
+name: 'Main menu'
+items:
+    -
+        title: 走進育才香港
+        nesting: ''
+        type: header
+        url: ''
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 集團簡介
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: aboutyucai-2
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 榮譽與認證
+                nesting: '0'
+                type: static-page
+                code: ''
+                reference: aboutyucai-brand
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 公益事業
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: aboutyucai-public
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 展會與作品
+        nesting: ''
+        type: header
+        url: ''
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 作品展示
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: show-masterpiece
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 展會報道
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: show-reports
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 產品中心
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: product-center
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 工廠概覽
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: works
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 新聞中心
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: company-news
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 服務與支持
+        nesting: ''
+        type: header
+        url: ''
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 服務理念
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: service-idea
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 聯繫我們
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: service-contact
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'

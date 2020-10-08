@@ -1,0 +1,123 @@
+description = "Map Section"
+
+[viewBag]
+==
+<div id="map_canvas" style="width: 100%; height: 400px;"></div>
+<!--onload="initialize()"-->
+<script type="text/javascript">
+    var geocoder;
+    var map;
+    var address ="{{ data.section_map_address }}";
+    function initialize() {
+      geocoder = new google.maps.Geocoder();
+      var latlng = new google.maps.LatLng(-34.397, 150.644);
+      var myOptions = {
+        zoom: 16,
+        center: latlng,
+      mapTypeControl: true,
+      mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+      navigationControl: true,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+    
+           styles: [{
+               "featureType": "landscape.natural",
+               "elementType": "geometry.fill",
+               "stylers": [{
+                 "color": "#ffffff"
+               }]
+             }, {
+               "featureType": "landscape.man_made",
+               "stylers": [{
+                 "color": "#ffffff"
+               }, {
+                 "visibility": "off"
+               }]
+             }, {
+               "featureType": "water",
+               "stylers": [{
+                 "color": "#80C8E5"
+               }, {
+                 "saturation": 0
+               }]
+             }, {
+               "featureType": "road.arterial",
+               "elementType": "geometry",
+               "stylers": [{
+                 "color": "#999999"
+               }]
+             }, {
+               "elementType": "labels.text.stroke",
+               "stylers": [{
+                 "visibility": "off"
+               }]
+             }, {
+               "elementType": "labels.text",
+               "stylers": [{
+                 "color": "#333333"
+               }]
+             }
+    
+             , {
+               "featureType": "road.local",
+               "stylers": [{
+                 "color": "#dedede"
+               }]
+             }, {
+               "featureType": "road.local",
+               "elementType": "labels.text",
+               "stylers": [{
+                 "color": "#666666"
+               }]
+             }, {
+               "featureType": "transit.station.bus",
+               "stylers": [{
+                 "saturation": -57
+               }]
+             }, {
+               "featureType": "road.highway",
+               "elementType": "labels.icon",
+               "stylers": [{
+                 "visibility": "off"
+               }]
+             }, {
+               "featureType": "poi",
+               "stylers": [{
+                 "visibility": "off"
+               }]
+             }
+    
+           ]
+    
+      };
+      map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+      if (geocoder) {
+        geocoder.geocode( { 'address': address}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+            map.setCenter(results[0].geometry.location);
+    
+              var infowindow = new google.maps.InfoWindow(
+                  { content: '<b>'+address+'</b>',
+                    size: new google.maps.Size(150,50)
+                  });
+      
+              var marker = new google.maps.Marker({
+                  position: results[0].geometry.location,
+                  map: map, 
+                  title:address
+              }); 
+              google.maps.event.addListener(marker, 'click', function() {
+                  infowindow.open(map,marker);
+              });
+    
+            } else {
+              alert("No results found");
+            }
+          } else {
+            alert("Geocode was not successful for the following reason: " + status);
+          }
+        });
+      }
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ data.section_map_key }}&libraries=places&sensor=false&language={{ data.section_map_language|lower }}&region={{ data.section_map_region|upper }}&callback=initialize"></script>

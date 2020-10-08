@@ -1,0 +1,13 @@
+title = "Page Not Found (404)"
+url = "/404"
+layout = "default"
+is_hidden = 0
+
+[viewBag]
+localeUrl[gr] = "/page-not-found-404"
+==
+<section id="error" class="section text-center">
+    <h1>404, Page Not Found</h1>
+    <p>The page you are looking for doesn't exist or another error occurred.</p>
+    <a href="{{ 'index'|staticPage }}" class="btn btn-common btn-lg" data-aos="zoom-in" data-aos-delay="300">GO BACK TO THE HOMEPAGE</a>
+</section>

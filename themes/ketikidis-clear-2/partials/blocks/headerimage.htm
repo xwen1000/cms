@@ -1,0 +1,28 @@
+description = "Image Header Section"
+
+[viewBag]
+==
+<div id="header-area" class="{% if data.section_headerimage_transheader %}transheader{% endif %}">
+{% if data.section_headerimage_particles %}
+<div id="particles-js" class="particles"></div>
+{% endif %}
+    <div class="header-image jarallax" style="background-image: url(
+    {% if data.section_headerimage_image %}
+    {{ data.section_headerimage_image|media }}
+    {% else %}
+    {{ 'assets/images/img/1920x500.png'|theme }}
+    {% endif %}
+    );">
+        <div class="overlay"></div>
+        <div class="header-caption">
+            <h1>{{ data.section_headerimage_title }}</h1>
+            <p>{{ data.section_headerimage_subtitle }}</p>
+            {% if data.section_headerimage_button_label %}
+            <a class="btn btn-border" href="{{ data.section_headerimage_button_url }}">
+            <i class="{{ data.section_headerimage_button_icon }}"></i>
+            {{ data.section_headerimage_button_label }}
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>

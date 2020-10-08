@@ -1,0 +1,98 @@
+description = "Posts"
+
+[viewBag]
+
+[ssbuttons]
+fa = "no"
+twitter = 1
+facebook = 1
+google+ = 1
+stumbleupon = 0
+linkedin = 0
+order_twitter = 1
+order_facebook = 2
+order_google+ = 3
+order_stumbleupon = 4
+order_linkedin = 5
+==
+{% set posts = blogPosts.posts %}
+        {% for post in posts %}
+        <div class="blog-post" data-aos="zoom-in" data-aos-delay="300">
+            <div class="post-thumb">
+                {% if post.featuredvideo.hasVideo %}
+                <div class="video-wrapper">{{ post.featuredvideo.iframe_content|raw }}</div>
+                {% elseif post.featured_images.count == 1 %}
+                <a href="{{ post.url }}">
+                <img src="{{ post.featured_images.first.getThumb(1000, 470, 'crop') }}" alt="{{ image.description }}"/>
+                </a>       
+                {% elseif post.featured_images.count > 1 %}
+                <div class="post-gallery owl-carousel owl-theme">
+                    {% for image in post.featured_images %}
+                    <div class="item">
+                        <a href="{{ post.url }}">
+                        <img src="{{ image.getThumb(1000, 470, 'crop') }}" alt="{{ image.description }}"/>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <a href="{{ post.url }}">
+                <img src="{{ 'assets/images/img/1000x470.png'|theme }}" />
+                </a>
+                {% endif %}
+            </div>
+            <div class="post-content">
+                <div class="blog-meta">
+                    <ul>
+                        {% for category in post.categories %}
+                        <li><i class="lnr lnr-tag"></i> <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}</li>
+                        {% endfor %}
+                        <li><i class="lnr lnr-calendar-full"></i> {{ post.published_at|date('M d, Y') }}</li>
+                        <li><i class="lnr lnr-user"></i> {{ post.user.first_name}}</li>
+                        {% if this.theme.settings_disqus %}
+                        <li><i class="lnr lnr-bubble"></i> <a href="{{ post.url }}#disqus_thread"></a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <h2 class="blog-post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                <p>{{ html_limit(post.summary, 280)|raw }}</p>
+                <a href="{{ post.url }}" class="btn btn-common btn-rm">Read More</a>
+            </div>
+        </div>
+        {% else %}
+        <div id="blog-single" data-aos="fade-up" data-aos-delay="300">{{ noPostsMessage }}</div>
+        {% endfor %}
+<div class="blog-pagination clearfix" data-aos="zoom-in" data-aos-delay="300">
+    <nav>
+        {% if posts.lastPage > 1 %}
+        <ul class="pagination">
+            {% if posts.currentPage > 1 %}
+            <li class="page-item">
+                <a class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}" tabindex="-1" aria-label="Previous">
+                <i class="lnr lnr-chevron-left"></i>
+                Prev
+                <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            {% endif %}
+            {% for page in 1..posts.lastPage %}
+            <li class="page-item {{ posts.currentPage == page ? 'active' : null }}">
+                <a class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }} <span class="sr-only">(current)</span></a>
+            </li>
+            {% endfor %}
+            {% if posts.lastPage > posts.currentPage %}
+            <li class="page-item">
+                <a class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage+1) }) }}" aria-label="Next">
+                Next
+                <i class="lnr lnr-chevron-right"></i>
+                <span class="sr-only">Next</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    </nav>
+</div>
+{% if this.theme.settings_disqus %}
+<script id="dsq-count-scr" src="//{{ this.theme.settings_disqus_url }}/count.js" async></script>
+{% endif %}

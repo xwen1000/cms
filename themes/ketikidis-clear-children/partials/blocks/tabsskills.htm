@@ -1,0 +1,65 @@
+description = "Tabs-Skills Section"
+
+[viewBag]
+==
+<section id="skills-tabs" class="section" style="background-color: {{ data.section_tabsskills_bg }};">
+    {% if data.section_tabsskills_container %}
+    <div class="{{ data.section_tabsskills_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+    <div class="section-header" data-aos="zoom-in" data-aos-delay="300">
+        <h2 class="section-title">{{ data.section_tabsskills_header }}</h2>
+        <hr class="lines">
+        <p class="section-subtitle">{{ data.section_tabsskills_subheader }}</p>
+    </div>
+    <div class="row" data-aos="zoom-in" data-aos-delay="300">
+        <div class="col-md-6 
+        {% if data.section_tabsskills_tabs_position == 'left' %}order-1{% endif %}
+        {% if data.section_tabsskills_tabs_position == 'right' %}order-2{% endif %}
+        ">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                {% for fields in data.section_tabsskills_tabs %}
+                <li class="nav-item">
+                    <a {% if loop.index0 == 0 %} class="nav-link active" {% else %} class="nav-link" {% endif %} data-toggle="tab" href="#tab-{{ fields.section_tabsskills_tabs_title|slug }}" role="tab" aria-controls="{{ fields.section_tabsskills_tabs_title|slug }}">  
+                    <i class="{{ fields.section_tabsskills_tabs_icon }}"></i>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="tab-content">
+                {% for fields in data.section_tabsskills_tabs %}
+                {% if loop.first %}
+                <div class="tab-pane active" id="tab-{{ fields.section_tabsskills_tabs_title|slug }}" role="tabpanel">
+                    {% else %}
+                    <div class="tab-pane" id="tab-{{ fields.section_tabsskills_tabs_title|slug }}" role="tabpanel">
+                        {% endif %}
+                        <div class="service-content">
+                            <h3>{{ fields.section_tabsskills_tabs_title }}</h3>
+                            <p class="lead">{{ fields.section_tabsskills_tabs_subtitle }}</p>
+                            {{ fields.section_tabsskills_tabs_desc|raw }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-6 
+            {% if data.section_tabsskills_tabs_position == 'left' %}order-2{% endif %}
+            {% if data.section_tabsskills_tabs_position == 'right' %}order-1{% endif %}
+            ">
+                <div class="skill-shortcode">
+                    {% for fields in data.section_tabsskills_skills %}
+                    <div class="skill">
+                        <p>{{ fields.section_tabsskills_skills_title }}</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" data-percentage="{{ fields.section_tabsskills_skills_progress }}" style="width: {{ fields.section_tabsskills_skills_progress }}%;">
+                                <span class="sr-only">{{ fields.section_tabsskills_skills_progress }}% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

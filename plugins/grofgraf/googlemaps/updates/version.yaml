@@ -1,0 +1,11 @@
+1.0.1: First version of GoogleMaps
+1.0.2:
+  - Added backend form validation
+  - Settigns devided into categories
+  - Added default values
+1.0.3:
+  - Component namespace error fixed
+1.0.4:
+  - Registered permission
+1.0.5:
+  - Fixed permissions

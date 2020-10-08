@@ -1,0 +1,32 @@
+static-pages:
+    index:
+        home-simple-carousel: {  }
+        home-images-carousel: {  }
+        home-video-carousel: {  }
+        home-images-video-carousel: {  }
+        home-carousel-transparent: {  }
+        home-carousel-particles: {  }
+        home-image-header: {  }
+        home-image-header-transparent: {  }
+        home-image-header-particles: {  }
+        home-video-header: {  }
+        home-video-header-transparent: {  }
+        home-video-header-particles: {  }
+    about: {  }
+    services: {  }
+    pages:
+        pages-about: {  }
+        pages-services: {  }
+        pages-team: {  }
+        pages-tabs: {  }
+        pages-skills: {  }
+        pages-prices: {  }
+        pages-contact: {  }
+    portfolio:
+        portfolio-2-column-portfolio: {  }
+        portfolio-3-column-portfolio: {  }
+        portfolio-4-column-portfolio: {  }
+        portfolio-images-portfolio: {  }
+        portfolio-video-portfolio: {  }
+        portfolio-images-video-portfolio: {  }
+    contact: {  }

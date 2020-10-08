@@ -1,0 +1,30 @@
+title = "查询"
+url = "/order"
+layout = "product"
+description = "育才控股集團股份有限公司坐落於浙江省溫州市永嘉縣橋頭鎮白垟工業區。公司始創於1994 年，現已發展成為一家集設計開發、生產製造、銷售服務、文化創意、教育研究於一體的教育裝備綜合企業, 系中國教育裝備行業的龍頭骨幹。集團專業生產高檔書寫板、人體工學課桌椅、創意遊樂設施、幼稚教育傢俱、智慧互動式電子板五大主導系列產品，並擁有全國最大室內學生綜合實踐基地――溫州育才學生綜合實踐基地，在創客空間、智慧教室、生態幼稚園、兒童創意樂園、校園文化建設的設計和實現上具有獨特優勢和領先地位。經過26 年砥礪前行，如今的育才擁有強大的內容生產能力、價值吸引能力、資源服務能力、平臺聚合能力。"
+is_hidden = 0
+
+[genericForm]
+rules[name] = "required"
+rules[comments] = "required"
+rules[email] = "required|email"
+rules_messages[name.required] = "请输入Name"
+messages_success = "您的咨詢已提交成功！"
+messages_errors = "提交有錯誤！"
+mail_enabled = 1
+mail_subject = "收到客戶咨詢"
+mail_recipients[] = "info@yucai.com.hk"
+mail_bcc[] = "fengdexu@163.com"
+mail_template = "martin.forms::mail.notification"
+redirect = "/success.htm"
+inline_errors = "disabled"
+js_on_success = "alert('succes')"
+js_on_error = "alert('error')"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+emails_date_format = "Y-m-d"
+==
+{% component "genericForm" %}

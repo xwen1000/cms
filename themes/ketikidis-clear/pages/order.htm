@@ -1,0 +1,28 @@
+title = "查询"
+url = "/order"
+layout = "product"
+is_hidden = 0
+
+[genericForm]
+rules[name] = "required"
+rules[comments] = "required"
+rules[email] = "required|email"
+rules_messages[name.required] = "请输入Name"
+messages_success = "您的咨詢已提交成功！"
+messages_errors = "提交有錯誤！"
+mail_enabled = 1
+mail_subject = "收到客戶咨詢"
+mail_recipients[] = "info@yucai.com.hk"
+mail_bcc[] = "fengdexu@163.com"
+mail_template = "martin.forms::mail.notification"
+redirect = "/success.htm"
+inline_errors = "disabled"
+js_on_success = "alert('succes')"
+js_on_error = "alert('error')"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+==
+{% component "genericForm" %}

@@ -1,0 +1,39 @@
+description = "Facts Section"
+
+[viewBag]
+==
+<div class="counters section jarallax" style="background-image: url(
+    {% if data.section_facts_image %}
+    {{ data.section_facts_image|media }}
+    {% else %}
+    {{ 'assets/images/img/1920x500.png'|theme }}
+    {% endif %}
+    );">
+    <div class="overlay"></div>
+    {% if data.section_facts_container %}
+    <div class="{{ data.section_facts_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="section-header" data-aos="zoom-in" data-aos-delay="300">
+            <h2 class="section-title">{{ data.section_facts_header }}</h2>
+            <hr class="lines">
+            <p class="section-subtitle">{{ data.section_facts_subheader }}</p>
+        </div>
+        <div class="row">
+            {% for fields in data.section_facts %}
+            <div class="col-sm-6 col-md-3 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                <div class="facts-item">
+                    <div class="icon">    
+                        <i class="{{ fields.section_facts_icon }}"></i>
+                    </div>
+                    <div class="fact-count">
+                        <h4>{{ fields.section_facts_title }}</h4>
+                        <h3><span class="counter">{{ fields.section_facts_number }}</span></h3>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

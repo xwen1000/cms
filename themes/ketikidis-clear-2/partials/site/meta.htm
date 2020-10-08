@@ -1,0 +1,93 @@
+description = "Meta Data"
+
+[viewBag]
+==
+{% if blogPost.post %}
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ html_strip(html_limit(post.summary, 140)) }}">
+<meta name="keywords" content="{{ this.theme.site_keywords }}">
+<meta name="title" content="{{ post.title }} - {{ this.theme.site_name }}">
+<meta name="author" content="{{ post.user.first_name }}">
+<meta name="robots" content=="index, follow">
+<meta name="generator" content="{{ this.theme.site_name }}" />
+<title>{{ post.title }} - {{ this.theme.site_name }}</title>
+<link rel="canonical" href="{{ ''| page }}"/>
+{% if this.theme.settings_favicon %}
+<link rel="icon" type="image/png" href="{{ this.theme.settings_favicon|media }}" />
+{% endif %}
+<meta property="og:title" content="{{ post.title }} - {{ this.theme.site_name }}" />
+<meta property="og:url" content="{{ ''| page }}" />
+{% if post.featured_images.count > 0 %}
+<meta property="og:image" content="{{ post.featured_images.first.getThumb(600, 250, 'crop') }}" />
+{% endif %}
+<meta property="og:site_name" content="{{ this.theme.site_name }}" />
+<meta property="og:description" content="{{ html_strip(html_limit(post.summary, 140)) }}" />
+<meta property="fb:app_id" content="" />
+{% elseif this.page.url == '/blog/:page?' %}
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ this.page.meta_description|default(this.theme.site_description) }}">
+<meta name="keywords" content="{{ this.theme.site_keywords }}">
+<meta name="title" content="{{ this.page.meta_title|default(this.page.title) }} - {{ this.theme.site_name }}">
+<meta name="author" content="{{ this.theme.site_author }}">
+<meta name="robots" content="index, follow">
+<meta name="generator" content="{{ this.theme.site_name }}" />
+<title>{{ this.page.meta_title|default(this.page.title) }} - {{ this.theme.site_name }}</title>
+<link rel="canonical" href="{{ ''| page }}"/>
+{% if this.theme.settings_favicon %}
+<link rel="icon" type="image/png" href="{{ this.theme.settings_favicon|media }}" />
+{% endif %}
+<meta property="og:title" content="{{ this.page.meta_title|default(this.page.title) }} - {{ this.theme.site_name }}" />
+<meta property="og:url" content="{{ ''| page }}" />
+<meta property="og:site_name" content="{{ this.theme.site_name }}" />
+<meta property="og:description" content="{{ this.page.meta_description|default(this.theme.site_description) }}" />
+<meta property="fb:app_id" content="" />
+
+{% elseif blogCategories.categories %}
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ html_strip(html_limit(category.description, 140)) }}">
+<meta name="keywords" content="{{ this.theme.site_keywords }}">
+<meta name="title" content="{{ category.name }} - {{ this.theme.site_name }}">
+<meta name="author" content="{{ this.theme.site_author }}">
+<meta name="robots" content="index, follow">
+<meta name="generator" content="{{ this.theme.site_name }}" />
+<title>{{ category.name }} - {{ this.theme.site_name }}</title>
+<link rel="canonical" href="{{ ''| page }}"/>
+{% if this.theme.settings_favicon %}
+<link rel="icon" type="image/png" href="{{ this.theme.settings_favicon|media }}" />
+{% endif %}
+<meta property="og:title" content="{{ category.name }} - {{ this.theme.site_name }}" />
+<meta property="og:url" content="{{ ''| page }}" />
+<meta property="og:site_name" content="{{ this.theme.site_name }}" />
+<meta property="og:description" content="{{ html_strip(html_limit(category.description, 140)) }}" />
+<meta property="fb:app_id" content="" />
+
+{% else %}
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ this.page.meta_description|default(this.theme.site_description) }}">
+<meta name="keywords" content="{{ this.theme.site_keywords }}">
+<meta name="title" content="{{ this.page.meta_title|default(this.page.title) }} - {{ this.theme.site_name }}">
+<meta name="author" content="{{ this.theme.site_author }}">
+<meta name="robots" content="index, follow">
+<meta name="generator" content="{{ this.theme.site_name }}" />
+<title>{{ this.page.meta_title|default(this.page.title) }} - {{ this.theme.site_name }}</title>
+{% if this.theme.settings_favicon %}
+<link rel="icon" type="image/png" href="{{ this.theme.settings_favicon|media }}" />
+{% endif %}
+<meta property="og:title" content="{{ this.page.meta_title|default(this.page.title) }} - {{ this.theme.site_name }}" />
+<meta property="og:url" content="{{ ''| page }}" />
+<meta property="og:site_name" content="{{ this.theme.site_name }}" />
+<meta property="og:description" content="{{ this.page.meta_description|default(this.theme.site_description) }}" />
+<meta property="fb:app_id" content="" />
+{% endif %}

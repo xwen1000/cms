@@ -1,0 +1,79 @@
+description = "Contact Section"
+
+[viewBag]
+
+[contactForm]
+loadJS = 1
+==
+<section id="contact" class="section" style="background-color:{{ data.section_contact_bg }};">
+    <div class="contact-form">
+        {% if data.section_contact_container %}
+        <div class="{{ data.section_contact_container }}">
+        {% else %}
+        <div class="container">
+            {% endif %}
+            <div class="row justify-content-md-center">
+                <div class="col-md-9">
+                    <div class="contact-block">
+                        <div class="section-header" data-aos="zoom-in" data-aos-delay="300">
+                            <h2 class="section-title">{{ data.section_contact_header }}</h2>
+                            <hr class="lines">
+                            <p class="section-subtitle">{{ data.section_contact_subheader }}</p>
+                        </div>
+                        <div class="confirm-contact-container"></div>
+                        <form id="contactForm"
+                        data-request="{{ contactForm }}::onMailSend"
+                        data-request-update="'{{ contactForm }}::confirm': '.confirm-contact-container'"
+                        {% if contactForm.enableFileUpload %}
+                        data-request-files
+                        {% endif %}
+                        >
+                        <div class="row">
+                            <div class="col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="{{label.name}}">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="{{label.email}}">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12" data-aos="zoom-in" data-aos-delay="300">
+                                <div class="form-group">
+                                    <textarea class="form-control" id="message" name="message_content" rows="10" placeholder="{{label.message}}"></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                {% if contactForm.enableCaptcha %}
+                                <div class="form-group">
+                                    <label for="g-recaptcha">
+                                    {{label.captcha}}
+                                    </label>
+                                    <div class="g-recaptcha" data-sitekey="{{ contactForm.captchaSiteKey }}"></div>
+                                </div>
+                                {% endif %}
+                                {% if contactForm.mailgunSubscribeExist %}
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" name="maillist_subscribe" checked>{{label.maillist}}</label>
+                                        <input type="hidden" name="confirm_subscribe" value="true">
+                                    </div>
+                                </div>
+                                {% endif %}
+                                <div class="submit-button text-center" data-aos="zoom-in" data-aos-delay="300">
+                                    <button class="btn btn-common" id="submit" type="submit">{{label.button_text}}</button>
+                                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>

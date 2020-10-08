@@ -1,0 +1,63 @@
+description = "Blog Section"
+
+[viewBag]
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 3
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/blog-category"
+postPage = "blog/blog-post"
+==
+<section id="blog" class="section" style="background-color: {{ data.section_blog_bg }};">
+    {% if data.section_blog_container %}
+    <div class="{{ data.section_blog_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="section-header" data-aos="zoom-in" data-aos-delay="300">
+            <h2 class="section-title">{{ data.section_blog_header }}</h2>
+            <hr class="lines">
+            <p class="section-subtitle">{{ data.section_blog_subheader }}</p>
+        </div>
+        <div class="row">
+            {% set posts = blogPosts.posts %}
+            {% for post in posts %}
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 blog-item" data-aos="zoom-in" data-aos-delay="300">
+                <div class="blog-item-wrapper">
+                    <div class="blog-item-img">
+                        {% if post.featuredvideo.hasVideo %}
+                        <div class="video-wrapper">{{ post.featuredvideo.iframe_content|raw }}</div>
+                        {% elseif post.featured_images.count > 0 %}
+                        <img src="{{ post.featured_images.first.getThumb(350, 230, 'crop') }}" alt="{{ image.description }}"/>
+                        <a class="post-link" href="{{ post.url }}"><i class="lnr lnr-link"></i></a>       
+                        {% else %}
+                        <img src="{{ 'assets/images/img/350x230.png'|theme }}" />
+                        <a class="post-link" href="{{ post.url }}"><i class="lnr lnr-link"></i></a>
+                        {% endif %}
+                    </div>   
+                    <div class="blog-item-text">
+                        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                        <div class="meta-tags">
+                            <span class="date"><i class="lnr lnr-calendar-full"></i>{{ post.published_at|date('M d, Y') }}</span>
+                            {% if this.theme.settings_disqus %}
+                            <span class="comments"><a href="{{ post.url }}#disqus_thread"><i class="lnr lnr-bubble"></i></a></span>
+                            {% endif %}
+                        </div>
+                        <p>{{ html_limit(post.summary, 120)|raw }}</p>
+                        {% if data.section_blog_readmore %}
+                        <a href="{{ post.url }}" class="btn btn-common btn-rm">Read More</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" data-aos="zoom-in" data-aos-delay="300">{{ noPostsMessage }}</div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% if this.theme.settings_disqus %}
+<script id="dsq-count-scr" src="//{{ this.theme.settings_disqus_url }}/count.js" async></script>
+{% endif %}

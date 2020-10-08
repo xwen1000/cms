@@ -1,0 +1,28 @@
+description = "Copyright"
+
+[viewBag]
+==
+<div id="copyright">
+{% if this.theme.layout_container %}
+<div class="{{ this.theme.layout_container }}">
+{% else %}
+<div class="container">
+    {% endif %}
+    <div class="row">
+        <div class="footer-widget col-md-12" data-aos="zoom-in" data-aos-delay="300">
+            <div class="social-icons">
+                <ul>
+                    {% for fields in this.theme.social_media %}
+                    <li class="{{ fields.social_media_name }}"><a href="{{ fields.social_media_url }}"><i class="{{ fields.social_media_icon }}" aria-hidden="true"></i></a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="site-info">
+                <p>© {{ "now"|date("Y") }} {{ this.theme.site_name }}. All right reserved.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,1392 @@
+about:
+    name: About
+    description: About
+    icon: icon-info
+    fields:
+        section_about_section:
+            label: About
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_about_bg:
+            label: Background Color
+            type: colorpicker
+            availableColors: ["#ffffff","#f1f1f1","#f2f2f2","#f3f3f3","#f4f4f4","#f5f5f5","#f6f6f6","#f8f8f8","#f9f9f9"]
+            default: "#ffffff"
+            span: left
+        section_about_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: right
+        section_about_image:
+            label: Image
+            type: mediafinder
+            mode: image
+            span: left
+        section_about_image_position:
+            label: Image Position
+            type: balloon-selector
+            span: right
+            options:
+                left: Left
+                right: Right
+        section_about_big:
+            label: About Big Item
+            type: repeater
+            prompt: Add About Big Item
+            span: left
+            form:
+                fields:
+                    section_about_big_line:
+                        label: About Big Item
+                        type: section
+                    section_about_big_title:
+                        label: Item Title
+                        type: text
+                        span: full
+                    section_about_big_desc:
+                        label: Item Description
+                        type: richeditor
+                        size: large
+                        span: full
+        section_about_small:
+            label: About Small Item
+            type: repeater
+            prompt: Add About Small Item
+            span: right
+            form:
+                fields:
+                    section_about_small_line:
+                        label: About Small Item
+                        type: section
+                    section_about_small_title:
+                        label: Item Title
+                        type: text
+                        span: full
+                    section_about_small_desc:
+                        label: Item Description
+                        type: richeditor
+                        size: large
+                        span: full
+                        
+banner:
+    name: Banner
+    description: Banner
+    icon: icon-bookmark-o
+    fields:
+        section_banner_section:
+            label: Banner
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_banner_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: left
+        section_banner_image:
+            label: Image
+            type: mediafinder
+            mode: image
+            span: left
+        section_banner_header:
+            label: Header
+            type: text
+            span: left
+        section_banner_subheader:
+            label: Subheader
+            type: text
+            span: right
+        section_banner_button_label:
+            label: Button Label
+            type: text
+            span: left
+        section_banner_button_icon:
+            label: Button Icon
+            type: text
+            span: right
+        section_banner_button_url:
+            label: Button Url
+            type: text
+            span: full
+
+blog:
+    name: Blog
+    description: Blog
+    icon: icon-file-text-o
+    fields:
+        section_blog_section:
+            label: Blog
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_blog_bg:
+            label: Background Color
+            type: colorpicker
+            availableColors: ["#ffffff","#f1f1f1","#f2f2f2","#f3f3f3","#f4f4f4","#f5f5f5","#f6f6f6","#f8f8f8","#f9f9f9"]
+            default: "#ffffff"
+            span: left
+        section_blog_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: right
+        section_blog_readmore:
+            label: Enable Read More
+            type: switch
+            span: left
+            default: false
+        section_blog_header:
+            label: Header
+            type: text
+            span: left
+        section_blog_subheader:
+            label: Subheader
+            type: text
+            span: right
+            
+breadcrumbs:
+    name: Breadcrumbs
+    description: Breadcrumbs
+    icon: icon-bookmark
+    fields:
+        section_breadcrumbs_section:
+            label: Breadcrumbs
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_breadcrumbs_bg:
+            label: Background Color
+            type: colorpicker
+            availableColors: ["#ffffff","#f1f1f1","#f2f2f2","#f3f3f3","#f4f4f4","#f5f5f5","#f6f6f6","#f8f8f8","#f9f9f9"]
+            default: "#ffffff"
+            span: left
+        section_breadcrumbs_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: right
+        section_breadcrumbs:
+            label: Turn On Breadcrumbs
+            type: switch
+            span: left
+            default: false
+            
+carousel:
+    name: Carousel
+    description: Carousel
+    icon: icon-camera-retro
+    fields:
+        section_carousel_section:
+            label: Carousel
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_carousel:
+            type: repeater
+            prompt: Add Carousel Slide
+            form:
+                fields:
+                    section_carousel_line:
+                        label: Carousel Slide
+                        type: section
+                    section_carousel_image:
+                        label: Image
+                        type: mediafinder
+                        mode: image
+                        span: left
+                    section_carousel_title:
+                        label: Title
+                        type: text
+                        span: left
+                    section_carousel_subtitle:
+                        label: Subtitle
+                        type: text
+                        span: right
+                    section_carousel_button_label:
+                        label: Button Label
+                        type: text
+                        span: left
+                    section_carousel_button_icon:
+                        label: Button Icon
+                        type: text
+                        span: right
+                    section_carousel_button_url:
+                        label: Button Url
+                        type: text
+                        span: full
+                        
+carouselowl:
+    name: Owl Carousel
+    description: Owl Carousel
+    icon: icon-camera
+    fields:
+        section_carouselowl_section:
+            label: Owl Carousel
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_carouselowl_transheader:
+            label: Transparent Header
+            type: switch
+            default: false
+            span: left
+        section_carouselowl_particles:
+            label: Enable Particles
+            type: switch
+            default: false
+            span: right
+        section_carouselowl:
+            type: repeater
+            prompt: Add Owl Carousel Slide
+            form:
+                fields:
+                    section_carouselowl_line:
+                        label: Carousel Slide
+                        type: section
+                    section_carouselowl_type:
+                        label: Slide Type
+                        type: balloon-selector
+                        span: left
+                        options:
+                            owlimage: Image
+                            owlvideo: Video
+                    section_carouselowl_type_image:
+                        label: Image
+                        type: mediafinder
+                        mode: image
+                        span: left
+                        trigger:
+                            action: show
+                            field: section_carouselowl_type
+                            condition: value[owlimage]
+                    section_carouselowl_type_video:
+                        label: Video
+                        type: text
+                        span: full
+                        trigger:
+                            action: show
+                            field: section_carouselowl_type
+                            condition: value[owlvideo]
+                    section_carouselowl_title:
+                        label: Title
+                        type: text
+                        span: left
+                    section_carouselowl_subtitle:
+                        label: Subtitle
+                        type: text
+                        span: right
+                    section_carouselowl_button_label:
+                        label: Button Label
+                        type: text
+                        span: left
+                    section_carouselowl_button_icon:
+                        label: Button Icon
+                        type: text
+                        span: right
+                    section_carouselowl_button_url:
+                        label: Button Link
+                        type: text
+                        span: full
+            
+clients:
+    name: Clients
+    description: Clients
+    icon: icon-user-plus
+    fields:
+        section_clients_section:
+            label: Clients
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_clients_bg:
+            label: Background Color
+            type: colorpicker
+            availableColors: ["#ffffff","#f1f1f1","#f2f2f2","#f3f3f3","#f4f4f4","#f5f5f5","#f6f6f6","#f8f8f8","#f9f9f9"]
+            default: "#ffffff"
+            span: left
+        section_clients_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: right
+        section_clients_header:
+            label: Header
+            type: text
+            span: left
+        section_clients_subheader:
+            label: Subheader
+            type: text
+            span: right
+        section_clients:
+            type: repeater
+            prompt: Add Client
+            form:
+                fields:
+                    section_clients_line:
+                        label: Client
+                        type: section
+                    section_clients_image:
+                        label: Client Image
+                        type: mediafinder
+                        mode: image
+                        span: left
+                    section_clients_title:
+                        label: Client Title
+                        type: text
+                        span: right
+
+contact:
+    name: Contact
+    description: Contact Us
+    icon: icon-envelope-o
+    fields:
+        section_contact_section:
+            label: Contact Us
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_contact_bg:
+            label: Background Color
+            type: colorpicker
+            availableColors: ["#ffffff","#f1f1f1","#f2f2f2","#f3f3f3","#f4f4f4","#f5f5f5","#f6f6f6","#f8f8f8","#f9f9f9"]
+            default: "#ffffff"
+            span: left
+        section_contact_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: right
+        section_contact_header:
+            label: Header
+            type: text
+            span: left
+        section_contact_subheader:
+            label: Subheader
+            type: text
+            span: right
+
+contactinfo:
+    name: Contact Info
+    description: Contact Info
+    icon: icon-phone
+    fields:
+        section_contactinfo_section:
+            label: Contact Info
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_contactinfo_bg:
+            label: Background Color
+            type: colorpicker
+            availableColors: ["#ffffff","#f1f1f1","#f2f2f2","#f3f3f3","#f4f4f4","#f5f5f5","#f6f6f6","#f8f8f8","#f9f9f9"]
+            default: "#ffffff"
+            span: left
+        section_contactinfo_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: right
+        section_contactinfo_address_title:
+            label: Address Title
+            type: text
+            span: left
+        section_contactinfo_hours_title:
+            label: Address Title
+            type: text
+            span: right
+        section_contactinfo_address:
+            type: repeater
+            prompt: Add Address Info
+            span: left
+            form:
+                fields:
+                    section_contactinfo_address_line:
+                        label: Address Info
+                        type: section
+                    section_contactinfo_address_icon:
+                        label: Address Icon
+                        type: text
+                        span: left
+                    section_contactinfo_address_info:
+                        label: Address Info
+                        type: text
+                        span: right
+        section_contactinfo_hours:
+            type: repeater
+            prompt: Add Hours Info
+            span: right
+            form:
+                fields:
+                    section_contactinfo_hours_line:
+                        label: Hours Info
+                        type: section
+                    section_contactinfo_hours_icon:
+                        label: Hours Icon
+                        type: text
+                        span: right
+                    section_contactinfo_hours_info:
+                        label: Hours Info
+                        type: text
+                        span: full
+                        
+custom:
+    name: Custom
+    description: Custom
+    icon: icon-code
+    fields:
+        section_custom_section:
+            label: Custom
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_custom:
+            label: Custom Section Html Code
+            type: codeeditor
+            size: giant
+            language: html
+            
+facts:
+    name: Facts
+    description: Facts
+    icon: icon-star
+    fields:
+        section_facts_section:
+            label: Facts
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_facts_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: left
+        section_facts_image:
+            label: Image
+            type: mediafinder
+            mode: image
+            span: left
+        section_facts_header:
+            label: Header
+            type: text
+            span: left
+        section_facts_subheader:
+            label: Subheader
+            type: text
+            span: right
+        section_facts:
+            type: repeater
+            prompt: Add fact
+            form:
+                fields:
+                    section_facts_line:
+                        label: Fact Item
+                        type: section
+                    section_facts_title:
+                        label: Fact Title
+                        type: text
+                        span: full
+                    section_facts_number:
+                        label: Fact Number
+                        type: number
+                        span: left
+                    section_facts_icon:
+                        label: Fact Icon
+                        type: text
+                        span: right
+            
+features:
+    name: Features
+    description: Features
+    icon: icon-tasks
+    fields:
+        section_features_section:
+            label: Features
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_features_bg:
+            label: Background Color
+            type: colorpicker
+            availableColors: ["#ffffff","#f1f1f1","#f2f2f2","#f3f3f3","#f4f4f4","#f5f5f5","#f6f6f6","#f8f8f8","#f9f9f9"]
+            default: "#ffffff"
+            span: left
+        section_features_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: right
+        section_features_image:
+            label: Image
+            type: mediafinder
+            mode: image
+            span: left
+        section_features_image_position:
+            label: Image Position
+            type: balloon-selector
+            span: right
+            options:
+                left: Left
+                center: Center
+                right: Right
+        section_features_header:
+            label: Header
+            type: text
+            span: left
+        section_features_subheader:
+            label: Subheader
+            type: text
+            span: right
+        section_features1:
+            label: Features List 1
+            type: repeater
+            prompt: Add Feature Item
+            span: left
+            form:
+                fields:
+                    section_features1_line:
+                        label: Feature
+                        type: section
+                    section_features1_align:
+                        label: Text Align
+                        type: balloon-selector
+                        span: left
+                        options:
+                            left: Left
+                            right: Right
+                    section_features1_title:
+                        label: Title
+                        type: text
+                        span: full
+                    section_features1_icon:
+                        label: Icon
+                        type: text
+                        span: full
+                    section_features1_desc:
+                        label: Description
+                        type: textarea
+                        size: small
+                        span: full
+        section_features2:
+            label: Features List 2
+            type: repeater
+            prompt: Add Feature Item
+            span: right
+            form:
+                fields:
+                    section_features2_line:
+                        label: Feature
+                        type: section
+                    section_features2_align:
+                        label: Text Align
+                        type: balloon-selector
+                        span: left
+                        options:
+                            left: Left
+                            right: Right
+                    section_features2_title:
+                        label: Title
+                        type: text
+                        span: full
+                    section_features2_icon:
+                        label: Icon
+                        type: text
+                        span: full
+                    section_features2_desc:
+                        label: Description
+                        type: textarea
+                        size: small
+                        span: full
+                        
+headerimage:
+    name: Header Image
+    description: Header Image
+    icon: icon-camera
+    fields:
+        section_headerimage_section:
+            label: Header Image
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_headerimage_transheader:
+            label: Transparent Header
+            type: switch
+            default: false
+            span: left
+        section_headerimage_particles:
+            label: Enable Particles
+            type: switch
+            default: false
+            span: right
+        section_headerimage_image:
+            label: Header Image
+            type: mediafinder
+            mode: image
+            span: left
+        section_headerimage_title:
+            label: Title
+            type: text
+            span: left
+        section_headerimage_subtitle:
+            label: Subtitle
+            type: text
+            span: right
+        section_headerimage_button_label:
+            label: Button Label
+            type: text
+            span: left
+        section_headerimage_button_icon:
+            label: Button Icon
+            type: text
+            span: right
+        section_headerimage_button_url:
+            label: Button Link
+            type: text
+            span: full
+            
+headervideo:
+    name: Header Video
+    description: Header Video
+    icon: icon-camera
+    fields:
+        section_headervideo_section:
+            label: Header Video
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_headervideo_transheader:
+            label: Transparent Header
+            type: switch
+            default: false
+            span: left
+        section_headervideo_particles:
+            label: Enable Particles
+            type: switch
+            default: false
+            span: right
+        section_headervideo_poster:
+            label: Video Poster
+            type: mediafinder
+            comment: Jpg Image Supported. (Video and Poster must have the same name and must be in the same folder)
+            mode: image
+            span: left
+        section_headervideo_file:
+            label: Background Video
+            type: mediafinder
+            comment: MP4, Ogv, Webm Videos Supported. (Video and Poster must have the same name and must be in the same folder)
+            mode: file
+            span: right
+        section_headervideo_title:
+            label: Title
+            type: text
+            span: left
+        section_headervideo_subtitle:
+            label: Subtitle
+            type: text
+            span: right
+        section_headervideo_button_label:
+            label: Button Label
+            type: text
+            span: left
+        section_headervideo_button_icon:
+            label: Button Icon
+            type: text
+            span: right
+        section_headervideo_button_url:
+            label: Button Link
+            type: text
+            span: full
+
+map:
+    name: Μap
+    description: Μap
+    icon: icon-map-marker
+    fields:
+        section_map_section:
+            label: Μap
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_map_address:
+            label: Map Address
+            type: text
+            span: left
+        section_map_key:
+            label: Google Map Key
+            type: text
+            span: right
+        section_map_language:
+            label: Map Language Code
+            type: text
+            default: en
+            comment: "Enter your language code e.g: en"
+            span: left
+        section_map_region:
+            label: Map Region Code
+            type: text
+            default: en
+            comment: "Enter your language code e.g: en"
+            span: right
+            
+pageheader:
+    name: Pageheader
+    description: Pageheader
+    icon: icon-flag
+    fields:
+        section_pageheader_section:
+            label: Pageheader
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_pageheader_bg:
+            label: Background Color
+            type: colorpicker
+            availableColors: ["#ffffff","#f1f1f1","#f2f2f2","#f3f3f3","#f4f4f4","#f5f5f5","#f6f6f6","#f8f8f8","#f9f9f9"]
+            default: "#ffffff"
+            span: left
+        section_pageheader_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: right
+        section_pageheader:
+            label: Turn On Pageheader
+            type: switch
+            span: left
+            default: false
+            
+portfolio:
+    name: Portfolio
+    description: Portfolio
+    icon: icon-picture-o
+    fields:
+        section_portfolio_section:
+            label: Portfolio
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_portfolio_bg:
+            label: Background Color
+            type: colorpicker
+            availableColors: ["#ffffff","#f1f1f1","#f2f2f2","#f3f3f3","#f4f4f4","#f5f5f5","#f6f6f6","#f8f8f8","#f9f9f9"]
+            default: "#ffffff"
+            span: left
+        section_portfolio_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: right
+        section_portfolio_column:
+            label: Portfolio Columns
+            type: balloon-selector
+            span: left
+            options:
+                2column: 2 Column
+                3column: 3 Column
+                4column: 4 Column
+        section_portfolio_filter:
+            label: Filter
+            type: switch
+            span: right
+            default: true
+        section_portfolio_header:
+            label: Header
+            type: text
+            span: left
+        section_portfolio_subheader:
+            label: Subheader
+            type: text
+            span: right
+        section_portfolio:
+            type: repeater
+            prompt: Add Portfolio Image
+            form:
+                fields:
+                    section_portfolio_line:
+                        label: Portfolio Item
+                        type: section
+                    section_portfolio_type:
+                        label: Item Type
+                        type: balloon-selector
+                        span: left
+                        default: image-popup
+                        options:
+                            image-popup: Image
+                            video-popup: Video
+                    section_portfolio_image:
+                        label: Image
+                        type: mediafinder
+                        mode: image
+                        span: left
+                        trigger:
+                            action: show
+                            field: section_portfolio_type
+                            condition: value[image-popup]
+                    section_portfolio_video:
+                        label: Video
+                        type: text
+                        span: full
+                        trigger:
+                            action: show
+                            field: section_portfolio_type
+                            condition: value[video-popup]
+                    section_portfolio_thumb:
+                        label: Thumb Image
+                        type: mediafinder
+                        mode: image
+                        span: left
+                    section_portfolio_title:
+                        label: Title
+                        type: text
+                        span: left
+                    section_portfolio_desc:
+                        label: Description
+                        type: text
+                        span: right
+                    section_portfolio_category:
+                        label: Category
+                        type: text
+                        span: left
+                    section_portfolio_icon:
+                        label: Icon
+                        type: text
+                        span: right
+                    section_portfolio_url:
+                        label: Url
+                        type: text
+                        span: full
+
+pricing:
+    name: Pricing
+    description: Pricing
+    icon: icon-database
+    fields:
+        section_pricing_section:
+            label: Pricing
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_pricing_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: left
+        section_pricing_header:
+            label: Header
+            type: text
+            span: left
+        section_pricing_subheader:
+            label: Subheader
+            type: text
+            span: right
+        section_pricing:
+            type: repeater
+            prompt: Add Table
+            form:
+                fields:
+                    section_pricing_line:
+                        label: Table Item
+                        type: section
+                    section_pricing_top:
+                        label: Top Table
+                        type: switch
+                        span: left
+                        default: false
+                    section_pricing_title:
+                        label: Table Title
+                        type: text
+                        span: left
+                    section_pricing_price:
+                        label: Table Price
+                        type: number
+                        span: right
+                    section_pricing_icon:
+                        label: Table Icon
+                        type: text
+                        span: left
+                    section_pricing_button_label:
+                        label: Table Button Label
+                        type: text
+                        span: right
+                    section_pricing_button_url:
+                        label: Table Button Link
+                        type: text
+                        span: full
+                    section_pricing_feature1:
+                        label: Feature 1
+                        type: text
+                        span: left
+                    section_pricing_feature2:
+                        label: Feature 2
+                        type: text
+                        span: right
+                    section_pricing_feature3:
+                        label: Feature 3
+                        type: text
+                        span: left
+                    section_pricing_feature4:
+                        label: Feature 4
+                        type: text
+                        span: right
+
+services:
+    name: Services
+    description: Services
+    icon: icon-sliders
+    fields:
+        section_services_section:
+            label: Services
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_services_bg:
+            label: Background Color
+            type: colorpicker
+            availableColors: ["#ffffff","#f1f1f1","#f2f2f2","#f3f3f3","#f4f4f4","#f5f5f5","#f6f6f6","#f8f8f8","#f9f9f9"]
+            default: "#ffffff"
+            span: left
+        section_services_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: right
+        section_services_header:
+            label: Header
+            type: text
+            span: left
+        section_services_subheader:
+            label: Subheader
+            type: text
+            span: right
+        section_services:
+            type: repeater
+            prompt: Add Service
+            form:
+                fields:
+                    section_services_line:
+                        label: Service
+                        type: section
+                    section_services_title:
+                        label: Title
+                        type: text
+                        span: left
+                    section_services_desc:
+                        label: Description
+                        type: textarea
+                        size: small
+                        span: right
+                    section_services_icon:
+                        label: Icon
+                        type: text
+                        span: left
+
+skills:
+    name: Skills
+    description: Skills
+    icon: icon-line-chart
+    fields:
+        section_skills_section:
+            label: Skills
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_skills_bg:
+            label: Background Color
+            type: colorpicker
+            availableColors: ["#ffffff","#f1f1f1","#f2f2f2","#f3f3f3","#f4f4f4","#f5f5f5","#f6f6f6","#f8f8f8","#f9f9f9"]
+            default: "#ffffff"
+            span: left
+        section_skills_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: right
+        section_skills_header:
+            label: Header
+            type: text
+            span: left
+        section_skills_subheader:
+            label: Subheader
+            type: text
+            span: right
+        section_skills_style:
+            label: Progress Bar Style
+            type: balloon-selector
+            default: color
+            options:
+                color: Default Color
+                skill-striped: Striped
+                skill-striped skill-animated: Animated
+                grey-progress-bar: Gray
+        section_skills:
+            type: repeater
+            prompt: Add Skill
+            form:
+                fields:
+                    section_skills_line:
+                        label: Skill
+                        type: section
+                    section_skills_title:
+                        label: Skill Title
+                        type: text
+                        span: left
+                    section_skills_progress:
+                        label: Skill Progress
+                        type: number
+                        span: right
+                        
+subscribe:
+    name: Subscribe
+    description: Subscribe
+    icon: icon-newspaper-o
+    fields:
+        section_subscribe_section:
+            label: Subscribe
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_subscribe_bg:
+            label: Background Color
+            type: colorpicker
+            availableColors: ["#ffffff","#f1f1f1","#f2f2f2","#f3f3f3","#f4f4f4","#f5f5f5","#f6f6f6","#f8f8f8","#f9f9f9"]
+            default: "#ffffff"
+            span: left
+        section_subscribe_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: right
+        section_subscribe_header:
+            label: Header
+            type: text
+            span: left
+        section_subscribe_subheader:
+            label: Subheader
+            type: text
+            span: right
+                        
+tabs:
+    name: Tabs
+    description: Tabs
+    icon: icon-clone
+    fields:
+        section_tabs_section:
+            label: Tabs
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_tabs_bg:
+            label: Background Color
+            type: colorpicker
+            availableColors: ["#ffffff","#f1f1f1","#f2f2f2","#f3f3f3","#f4f4f4","#f5f5f5","#f6f6f6","#f8f8f8","#f9f9f9"]
+            default: "#ffffff"
+            span: left
+        section_tabs_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: right
+        section_tabs_image:
+            label: Image
+            type: mediafinder
+            mode: image
+            span: left
+        section_tabs_image_position:
+            label: Image Position
+            type: balloon-selector
+            span: right
+            options:
+                left: Left
+                right: Right
+        section_tabs_header:
+            label: Header
+            type: text
+            span: left
+        section_tabs_subheader:
+            label: Subheader
+            type: text
+            span: right
+        section_tabs_title:
+            label: Title
+            type: text
+            span: left
+        section_tabs_desc:
+            label: Description
+            type: text
+            span: right
+        section_tabs:
+            type: repeater
+            prompt: Add Tab
+            form:
+                fields:
+                    section_tabs_line:
+                        label: Tab
+                        type: section
+                    section_tabs_title:
+                        label: Tab Title
+                        type: text
+                        span: left
+                    section_tabs_desc:
+                        label: Tab Description
+                        type: richeditor
+                        size: large
+                        span: right
+                        
+tabsskills:
+    name: Tabs-Skills
+    description: Tabs-Skills
+    icon: icon-bar-chart
+    fields:
+        section_tabsskills_section:
+            label: Tabs-Skills
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_tabsskills_bg:
+            label: Background Color
+            type: colorpicker
+            availableColors: ["#ffffff","#f1f1f1","#f2f2f2","#f3f3f3","#f4f4f4","#f5f5f5","#f6f6f6","#f8f8f8","#f9f9f9"]
+            default: "#ffffff"
+            span: left
+        section_tabsskills_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: right
+        section_tabsskills_tabs_position:
+            label: Tabs Position
+            type: balloon-selector
+            span: left
+            options:
+                left: Left
+                right: Right
+        section_tabsskills_header:
+            label: Header
+            type: text
+            span: left
+        section_tabsskills_subheader:
+            label: Subheader
+            type: text
+            span: right
+        section_tabsskills_tabs:
+            type: repeater
+            prompt: Add Tab
+            span: left
+            form:
+                fields:
+                    section_tabsskills_tabs_line:
+                        label: Tab
+                        type: section
+                    section_tabsskills_tabs_title:
+                        label: Tab Title
+                        type: text
+                        span: left
+                    section_tabsskills_tabs_icon:
+                        label: Tab Icon
+                        type: text
+                        span: right
+                    section_tabsskills_tabs_subtitle:
+                        label: Tab Subtitle
+                        type: text
+                        span: full
+                    section_tabsskills_tabs_desc:
+                        label: Tab Description
+                        type: richeditor
+                        size: large
+                        span: full
+        section_tabsskills_skills:
+            type: repeater
+            prompt: Add Skill
+            span: right
+            form:
+                fields:
+                    section_tabsskills_skills_line:
+                        label: Skill
+                        type: section
+                    section_tabsskills_skills_title:
+                        label: Skill Title
+                        type: text
+                        span: left
+                    section_tabsskills_skills_progress:
+                        label: Skill Progress
+                        type: number
+                        span: right
+                        
+team:
+    name: Team
+    description: Team
+    icon: icon-users
+    fields:
+        section_team_section:
+            label: Team
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_team_bg:
+            label: Background Color
+            type: colorpicker
+            availableColors: ["#ffffff","#f1f1f1","#f2f2f2","#f3f3f3","#f4f4f4","#f5f5f5","#f6f6f6","#f8f8f8","#f9f9f9"]
+            default: "#ffffff"
+            span: left
+        section_team_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: right
+        section_team_header:
+            label: Header
+            type: text
+            span: left
+        section_team_subheader:
+            label: Subheader
+            type: text
+            span: right
+        section_team:
+            type: repeater
+            prompt: Add Team Member
+            form:
+                fields:
+                    section_team_line:
+                        label: Team Member
+                        type: section
+                    section_team_image:
+                        label: Member Image
+                        type: mediafinder
+                        mode: image
+                        span: left
+                    section_team_title:
+                        label: Member Name
+                        type: text
+                        span: left
+                    section_team_subtitle:
+                        label: Member Title
+                        type: text
+                        span: right
+                    section_team_desc:
+                        label: Member Description
+                        type: textarea
+                        size: small
+                        span: full
+                    section_team_facebook:
+                        label: Member Facebook
+                        type: text
+                        span: left
+                    section_team_twitter:
+                        label: Member Twitter
+                        type: text
+                        span: right
+                    section_team_googleplus:
+                        label: Member Google Plus
+                        type: text
+                        span: left
+                    section_team_linkedin:
+                        label: Member Linkedin
+                        type: text
+                        span: right
+ 
+testimonials:
+    name: Testimonials
+    description: Testimonials
+    icon: icon-commenting-o
+    fields:
+        section_testimonials_section:
+            label: Testimonials
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_testimonials_bg:
+            label: Background Color
+            type: colorpicker
+            availableColors: ["#ffffff","#f1f1f1","#f2f2f2","#f3f3f3","#f4f4f4","#f5f5f5","#f6f6f6","#f8f8f8","#f9f9f9"]
+            default: "#ffffff"
+            span: left
+        section_testimonials_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: right
+        section_testimonials:
+            type: repeater
+            prompt: Add Testimonial
+            form:
+                fields:
+                    section_testimonials_line:
+                        label: Testimonial
+                        type: section
+                    section_testimonials_image:
+                        label: Testimonial Image
+                        type: mediafinder
+                        mode: image
+                        span: left
+                    section_testimonials_name:
+                        label: Testimonial Name
+                        type: text
+                        span: left
+                    section_testimonials_title:
+                        label: Testimonial Title
+                        type: text
+                        span: right
+                    section_testimonials_desc:
+                        label: Testimonial Description
+                        type: richeditor
+                        size: large
+                        span: full
+                
+video:
+    name: Video
+    description: Video
+    icon: icon-check-square-o
+    fields:
+        section_video_section:
+            label: Video
+            type: section
+            cssClass: 'p-a m-y control-scrollpanel'
+        section_video_container:
+            label: Container Type
+            type: balloon-selector
+            options:
+                container: Container
+                container-fluid: Fluid Container
+            span: left
+        section_video_poster:
+            label: Video Poster
+            type: mediafinder
+            comment: Jpg Image Supported. (Video and Poster must have the same name and must be in the same folder)
+            mode: image
+            span: left
+        section_video_file:
+            label: Background Video
+            type: mediafinder
+            comment: MP4, Ogv, Webm Videos Supported. (Video and Poster must have the same name and must be in the same folder)
+            mode: file
+            span: right
+        section_video_header:
+            label: Header
+            type: text
+            span: left
+        section_video_subheader:
+            label: Subheader
+            type: text
+            span: right
+        section_video_button_icon:
+            label: Button Icon
+            type: text
+            span: left
+        section_video_button_url:
+            label: Video Url
+            type: text
+            span: right

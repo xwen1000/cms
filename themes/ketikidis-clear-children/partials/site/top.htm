@@ -1,0 +1,82 @@
+description = "Top section"
+
+[viewBag]
+==
+<div class="top-section">
+{% if this.theme.topbar_enable %}
+<div class="{{ this.theme.layout_container }}">
+        <div class="top-area">
+            <div class="row d-flex justify-content-end">
+                {% if this.theme.topbar_callus %}
+                <div class="call-us pl-3 mr-auto">
+                    <p>
+                        {% if this.theme.fonts_lineicons %}
+                        <i class="lnr lnr-phone-handset"></i> 
+                        {% else %}
+                        <i class="fa fa-phone"></i> 
+                        {% endif %}
+                        {{ this.theme.topbar_callus }}
+                    </p>
+                </div>
+                {% endif %}
+                {% if this.theme.topbar_account %}
+                <div class="user-account pr-3">
+                    <ul class="nav nav-inline justify-content-end">
+                        {% if user %}
+                        <li role="presentation" class="nav-item">
+                            <a href="#" class="nav-link" data-request="onLogout">
+                            {% if this.theme.fonts_lineicons %}
+                            <i class="lnr lnr-exit"></i> 
+                            {% else %}
+                            <i class="fa fa-sign-out"></i> 
+                            {% endif %}
+                            {{ "Logout" }}</a>
+                        </li>
+                        <li role="presentation" class="nav-item">
+                            <a href="{{ 'users'|staticPage }}" class="nav-link">
+                            {% if this.theme.fonts_lineicons %}
+                            <i class="lnr lnr-user"></i> 
+                            {% else %}
+                            <i class="fa fa-user"></i> 
+                            {% endif %}
+                            {{ "My Account" }}</a>
+                        </li>
+                        {% else %}   
+                        <li role="presentation" class="nav-item">
+                            <a href="{{ 'user/account'|page }}" class="nav-link">
+                            {% if this.theme.fonts_lineicons %}
+                            <i class="lnr lnr-user"></i>
+                            {% else %}
+                            <i class="fa fa-user"></i>
+                            {% endif %}
+                            {{ "Account" }}</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                {% endif %}
+                {% if this.theme.topbar_language %}
+                <div class="language pr-3">
+                    {% if this.theme.fonts_lineicons %}
+                    <i class="lnr lnr-earth"></i>
+                    {% else %}
+                    <i class="fa fa-globe"></i>
+                    {% endif %}
+                    {% for code, locale in localePicker.locales %}
+                    <div class="picker-lang
+                        {% if localePicker.activeLocale == code %}
+                        active
+                        {% endif %}">
+                        <a href="#" data-request="onSwitchLocale"
+                            data-request-data="locale: '{{ code }}'">
+                        {{ code|upper }}
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+</div>

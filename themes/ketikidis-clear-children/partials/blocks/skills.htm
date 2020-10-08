@@ -1,0 +1,33 @@
+description = "Skills Section"
+
+[viewBag]
+==
+<section class="section skills" style="background-color: {{ data.section_skills_bg }};">
+    {% if data.section_skills_container %}
+    <div class="{{ data.section_skills_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="section-header" data-aos="zoom-in" data-aos-delay="300">
+            <h2 class="section-title">{{ data.section_skills_header }}</h2>
+            <hr class="lines">
+            <p class="section-subtitle">{{ data.section_skills_subheader }}</p>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="skill-shortcode {{ data.section_skills_style }}" data-aos="fade-up" data-aos-delay="700">
+                    {% for fields in data.section_skills %}
+                    <div class="skill" data-aos="zoom-in" data-aos-delay="300">
+                        <p>{{ fields.section_skills_title }}</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" data-percentage="{{ fields.section_skills_progress }}" style="width: {{ fields.section_skills_progress }}%;">
+                                <span class="sr-only">{{ fields.section_skills_progress }}% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

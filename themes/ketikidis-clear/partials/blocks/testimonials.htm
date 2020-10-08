@@ -1,0 +1,32 @@
+description = "Testimonials Section"
+
+[viewBag]
+==
+<div id="testimonial" class="section" style="background-color: {{ data.section_testimonials_bg }};">
+     {% if data.section_testimonials_container %}
+    <div class="{{ data.section_testimonials_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="row justify-content-md-center">
+            <div class="col-md-8" data-aos="zoom-in" data-aos-delay="300">
+                <div class="touch-slider owl-carousel owl-theme">
+                    {% for fields in data.section_testimonials %}
+                    <div class="testimonial-item">
+                        {% if fields.section_testimonials_image %}
+                        <img src="{{ fields.section_testimonials_image|media }}" alt="">
+                        {% else %}
+                        <img src="{{ 'assets/images/img/80x80.png'|theme }}" alt="">
+                        {% endif %}
+                        <div class="testimonial-text">
+                            {{ fields.section_testimonials_desc|raw }}
+                            <h3>{{ fields.section_testimonials_name }}</h3>
+                            <span>{{ fields.section_testimonials_title }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

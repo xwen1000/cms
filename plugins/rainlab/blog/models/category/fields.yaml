@@ -1,0 +1,35 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: rainlab.blog::lang.category.name
+        placeholder: rainlab.blog::lang.category.name_placeholder
+        span: left
+
+    slug:
+        label: rainlab.blog::lang.category.slug
+        span: right
+        placeholder: rainlab.blog::lang.category.slug_placeholder
+        preset: name
+
+    description:
+        label: 'rainlab.blog::lang.category.description'
+        size: large
+        oc.commentPosition: ''
+        span: full
+        type: textarea
+    featured_images:
+        label: 图片
+        type: fileupload
+        mode: image
+        imageWidth: 200
+        imageHeight: 200
+    icon_image:
+        label: icon图片
+        type: fileupload
+        mode: image
+        imageWidth: 50
+        imageHeight: 50

@@ -1,0 +1,33 @@
+description = "Video Header Section"
+
+[viewBag]
+==
+<div id="header-area" class="{% if data.section_headervideo_transheader %}transheader{% endif %}">
+{% if data.section_headervideo_particles %}
+<div id="particles-js" class="particles"></div>
+{% endif %}
+    <div class="header-video">
+    {% if data.section_headervideo_file %}
+    <div class="video-item" 
+        data-vide-bg="{{ data.section_headervideo_file|media }}" 
+        data-vide-options="posterType: jpg, loop: true, muted: false, position: 0% 0%">
+    </div>
+    {% else %}
+    <div class="video-item" 
+        data-vide-bg="{{ 'assets/images/video/video.mp4'|theme }}" 
+        data-vide-options="posterType: jpg, loop: true, muted: false, position: 0% 0%">
+    </div>
+    {% endif %}
+        <div class="overlay"></div>
+        <div class="header-caption">
+            <h1>{{ data.section_headervideo_title }}</h1>
+            <p>{{ data.section_headervideo_subtitle }}</p>
+            {% if data.section_headervideo_button_label %}
+            <a class="btn btn-border" href="{{ data.section_headervideo_button_url }}">
+            <i class="{{ data.section_headervideo_button_icon }}"></i>
+            {{ data.section_headervideo_button_label }}
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>

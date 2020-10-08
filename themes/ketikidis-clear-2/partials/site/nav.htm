@@ -1,0 +1,52 @@
+description = "Main Menu"
+
+[viewBag]
+
+[staticMenu]
+code = "main-menu"
+==
+{% import _self as nav %}
+{% macro render_menu(items) %}
+{% import _self as nav %}
+{% for item in items %}
+{% if item.items %}
+<li role="presentation" class="nav-item dropdown {{ item.isActive ? 'active' }} {{ item.isChildActive ? 'active' }}">
+    <a href="{{ item.url }}" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{ item.title }}</a>
+    <ul class="dropdown-menu">
+        {{ nav.render_menu(item.items) }}
+    </ul>
+</li>
+{% else %}
+<li role="presentation" class="nav-item {{ item.isActive ? 'active' }} {{ item.isChildActive ? 'active' }}">
+    <a href="{{ item.url }}" class="nav-link">{{ item.title }}</a>
+</li>
+{% endif %}
+{% endfor %}
+{% endmacro %}
+<nav class="navbar navbar-expand-md mainmenu-area" {% if this.theme.stickymenu_js %}data-toggle="sticky-onscroll"{% endif %}>
+{% if this.theme.layout_container %}
+<div class="{{ this.theme.layout_container }}">
+{% else %}
+<div class="container">
+    {% endif %}
+    <a class="navbar-brand" href="{{ 'index'|staticPage }}">
+        {% if this.theme.settings_brand_type == 'logo' and this.theme.settings_brand_logo is not empty %}
+        <img src="{{ this.theme.settings_brand_logo|media }}" alt="logo">
+        {% elseif this.theme.settings_brand_type == 'text' and this.theme.settings_brand_text is not empty %}
+        <div class="navbar-brand">{{ this.theme.settings_brand_text }}</div>
+        {% else %}
+        <img src="{{ 'assets/images/logo.png'|theme }}" alt="logo">
+        {% endif %}
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="lnr lnr-menu"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="main-menu">
+        {% if staticMenu.menuItems %}
+        <ul class="navbar-nav mr-auto w-100 justify-content-end">
+            {{ nav.render_menu(staticMenu.menuItems) }}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+</nav>

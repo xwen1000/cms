@@ -1,0 +1,213 @@
+description = "newPost"
+
+[viewBag]
+
+[blogPosts casesPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "cases"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog-new-post"
+postPage = "blog-new-post"
+==
+<section class="blog-single {% if this.theme.blog_post_transheader and this.theme.blog_post_type == 'type2' %}transheader{% endif %}">
+    {% set post = blogPost.post %}
+    <div class="blog-post" data-aos="zoom-in" data-aos-delay="300">
+        {% if this.theme.blog_post_type == 'type1' %}
+        <div class="post-thumb">
+            {% if post.featuredvideo.hasVideo %}
+            <div class="video-wrapper">{{ post.featuredvideo.iframe_content|raw }}</div>
+            {% elseif post.featured_images.count == 1 %}
+            <a href="{{ post.url }}">
+            <img src="{{ post.featured_images.first.getThumb(1200, 564, 'crop') }}" alt="{{ image.description }}"/>
+            </a>       
+            {% elseif post.featured_images.count > 1 %}
+            <div class="post-gallery owl-carousel owl-theme">
+                {% for image in post.featured_images %}
+                <div class="item">
+                    <a href="{{ post.url }}">
+                    <img src="{{ image.getThumb(1200, 564, 'crop') }}" alt="{{ image.description }}"/>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <a href="{{ post.url }}">
+            <img src="{{ 'assets/images/img/1200x564.png'|theme }}" />
+            </a>
+            {% endif %}
+        </div>
+        {% endif %}
+        
+        {% if this.theme.blog_post_gallery %}
+        <div class="blog-gallery" data-aos="zoom-in" data-aos-delay="300">
+            <h4 style="width:100%;text-align:center;">{{ post.title }}</h4>
+            {% if post.featured_images.count > 0 %}
+            <div id="post-gallery-items" class="owl-carousel owl-theme post-gallery-popup">
+                {% for image in post.featured_images %}
+                <div class="item">
+                    <div class="post-gallery-item">
+                        <a href="{{ image.getThumb(1200, 'auto') }}" title="{{ image.title }}"><i class="lnr lnr-link"></i></a>
+                        <img src="{{ image.getThumb(200, 150, 'crop') }}" alt="{{ image.title }}"/>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+        
+        <div class="post-content">
+            {% if this.theme.blog_post_type == 'type1' %}
+            <!-- <div class="blog-meta">
+                <ul>
+                    {#{% for category in post.categories %}
+                    <li><i class="lnr lnr-tag"></i> <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}</li>
+                    {% endfor %}#}
+                    <li><i class="lnr lnr-calendar-full"></i> {{ post.published_at|date('M d, Y') }}</li>
+                    <li><i class="lnr lnr-user"></i> {{ post.user.first_name}}</li>
+                    {% if this.theme.settings_disqus %}
+                    <li><i class="lnr lnr-bubble"></i> <a href="{{ post.url }}#disqus_thread">Comments</a></li>
+                    {% endif %}
+                </ul>
+            </div> -->
+            {% endif %}
+            <p>{{ post.content_html|raw }}</p>
+        </div>
+        {#<div class="post-line"><hr></div>
+            <div class="blog-data">
+                <div class="blog-tags">
+                    <span><i class="lnr lnr-tag"></i></span>
+                    {% for tag in post.tags %}
+                    <a href="{{ '/tag' }}/{{ tag.slug }}">{{ tag.name }}</a>
+                    {% endfor %}
+                </div>
+                <div class="blog-share">
+                    {% if this.theme.settings_social %}
+                    {% for button in ssbuttons.property('buttons_order') %}
+                    {% if(ssbuttons.property(button)) %}
+                    <a href="{{ ssbuttons.property('buttons_parameters')[button]['href'] }}" title="{{ ssbuttons.property('buttons_parameters')[button]['title'] }}" target="_blank">
+                        <i class="{{ ssbuttons.property('buttons_parameters')[button]['icon'] }}"></i>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                    {% if ssbuttons.property('js') %}
+                    <script src="/plugins/martin/ssbuttons/assets/js/ssbuttons.js"></script>
+                    {% endif %}
+                    {% endif %}
+                </div>
+            </div>#}
+    </div>
+    
+
+    {% if this.theme.settings_disqus %}
+    <div class="blog-comment" data-aos="zoom-in" data-aos-delay="300">
+        <h4>Comments</h4>
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+            /*
+            var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://{{ this.theme.settings_disqus_url }}/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+    {% endif %}
+    {% if this.theme.blog_post_navigation %}
+    {% set prev = nextAndPrev.prevPost %}
+    {% set next = nextAndPrev.nextPost %}
+    <div class="next-prev clearfix">
+        <ul>
+            <li class="previous">
+                <a href="{{prev.url}}" rel="prev" title="{{ prev.title }}">
+                    {% if this.theme.fonts_lineicons %}
+                    <i class="lnr lnr-chevron-left"></i> 
+                    {% else %}
+                    <i class="fa fa-chevron-left"></i> 
+                    {% endif %}
+                    <div class="navigation-detail">
+                        <span>Previous Post</span>
+                        <strong>{{ prev.title }}</strong>
+                        <span class="small">
+                            {% if date(prev.published_at) > date('-7days') %}
+                            {{ prev.published_at | time_diff }}
+                            {% else %}
+                            <time datetime="{{ prev.published_at|date('Y-m-d\TH:i:sP') }}">
+                                <!--<i class="fa fa-ellipsis-h" aria-hidden="true"></i>--> {{ prev.published_at | strftime('%A') }}, {{ prev.published_at | strftime('%e %B %Y') }}
+                            </time>
+                            {% endif %}
+                            <meta itemprop="datePublished" content="{{ prev.published_at|date('Y-m-dTH:i:sZ') }}"/>
+                        </span>
+                    </div>
+                </a>
+            </li>
+            <li class="next">
+                <a href="{{next.url}}" rel="next" title="{{ next.title }}">
+                    {% if this.theme.fonts_lineicons %}
+                    <i class="lnr lnr-chevron-right"></i> 
+                    {% else %}
+                    <i class="fa fa-chevron-right"></i> 
+                    {% endif %}
+                    <div class="navigation-detail">
+                        <span>Next Post</span>
+                        <strong>{{ next.title }}</strong>
+                        <span class="small">
+                            {% if date(next.published_at) > date('-7days') %}
+                            {{ next.published_at | time_diff }}
+                            {% else %}
+                            <time datetime="{{ next.published_at|date('Y-m-d\TH:i:sP') }}">
+                                <!--<i class="fa fa-ellipsis-h" aria-hidden="true"></i>--> {{ next.published_at | strftime('%A') }}, {{ next.published_at | strftime('%e %B %Y') }}
+                            </time>
+                            {% endif %}
+                            <meta itemprop="datePublished" content="{{ next.published_at|date('Y-m-dTH:i:sZ') }}"/>
+                        </span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    {% endif %}
+    
+    {% if post.awords.count() > 0 %}
+    <h4>案例展示</h4>
+    <div id="owl-demo" class="owl-carousel">
+        {% for p in post.awords %}
+            <a class="item mt-2" href="/blog/post/{{ p.slug }}"><img src="{{ p.featured_images.first.getThumb(200, 150, 'crop') }}" alt="{{ p.url }}"/>{{ p.title }}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+
+        
+</section>
+<style>
+#owl-demo {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#owl-demo .item {
+    display: block;
+    margin: 5px;
+}
+#owl-demo img {
+    display: block;
+    width: 100%;
+}
+
+</style>
+<link href="https://cdn.bootcss.com/owl-carousel/1.3.3/owl.carousel.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/owl-carousel/1.3.3/owl.carousel.min.js" defer></script>
+<script src="/themes/ketikidis-clear/assets/js/owl-js.js" defer></script>

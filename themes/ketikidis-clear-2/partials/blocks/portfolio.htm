@@ -1,0 +1,68 @@
+description = "Portfolio Section"
+
+[viewBag]
+==
+<section id="portfolios" class="section" style="background-color: {{ data.section_portfolio_bg }};">
+    {% if data.section_portfolio_container %}
+    <div class="{{ data.section_portfolio_container }}">
+    {% else %}
+    <div class="container">
+        {% endif %}
+        <div class="section-header" data-aos="zoom-in" data-aos-delay="300">
+            <h2 class="section-title">{{ data.section_portfolio_header }}</h2>
+            <hr class="lines">
+            <p class="section-subtitle">{{ data.section_portfolio_subheader }}</p>
+        </div>
+        <div class="portfolio-wrap">
+            {% if data.section_portfolio_filter %}
+            <div class="col-md-12" data-aos="zoom-in" data-aos-delay="300">
+                <div class="controls text-center">
+                    <a class="filter active btn btn-common" data-group="all">All</a>
+                    {% set existingIds = [] %}
+                    {% for fields in data.section_portfolio %}
+                    {% if fields.section_portfolio_category not in existingIds %}
+                    <a class="filter btn btn-common" data-group="{{ fields.section_portfolio_category|slug }}">{{ fields.section_portfolio_category }}</a>
+                    {% set existingIds = existingIds|merge([fields.section_portfolio_category]) %}
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            <div id="portfolio" class="row portfolio-gallery-popup" data-aos="zoom-in" data-aos-delay="300">
+                {% for fields in data.section_portfolio %}
+                <div class="
+                    {% if data.section_portfolio_column == '2column' %}col-lg-6 col-md-6 col-sm-6 col-xs-12
+                    {% elseif data.section_portfolio_column == '3column' %}col-lg-4 col-md-4 col-sm-6 col-xs-12
+                    {% elseif data.section_portfolio_column == '4column' %}col-lg-3 col-md-3 col-sm-6 col-xs-12
+                    {% else %}col-lg-4 col-md-4 col-sm-6 col-xs-12{% endif %}
+                    picture-item" data-groups='["{{ fields.section_portfolio_category|slug }}"]'>
+                    <div class="portfolio-item">
+                        <div class="shot-item">
+                            {% if fields.section_portfolio_type == 'image-popup' and fields.section_portfolio_image is not empty %}
+                            <a class="overlay {% if fields.section_portfolio_url is empty %}portfolio-popup{% endif %} image-popup" title="{{ fields.section_portfolio_title }}" href={% if fields.section_portfolio_url %}"{{ fields.section_portfolio_url }}" target="_blank"{% else %}"{{ fields.section_portfolio_image|media }}"{% endif %}>
+                            {% elseif fields.section_portfolio_type == 'video-popup' and fields.section_portfolio_video is not empty %}
+                            <a class="overlay portfolio-popup video-popup" title="{{ fields.section_portfolio_title }}" href="{{ fields.section_portfolio_video }}">
+                            {% else %}
+                            <a class="overlay {% if fields.section_portfolio_url is empty %}portfolio-popup{% endif %} image-popup" title="{{ fields.section_portfolio_title }}" href={% if fields.section_portfolio_url %}"{{ fields.section_portfolio_url }}" target="_blank"{% else %}"{{ 'assets/images/img/800x600.png'|theme }}"{% endif %}>
+                                {% endif %}
+                                {% if fields.section_portfolio_thumb %}
+                                <img src="{{ fields.section_portfolio_thumb|media }}" alt="{{ fields.section_portfolio_title }}">
+                                {% else %}
+                                <img src="{{ 'assets/images/img/355x266.png'|theme }}" alt="{{ fields.section_portfolio_title }}">
+                                {% endif %}  
+                                  
+                                <div class="meta-item">
+                                    <i class="{{ fields.section_portfolio_icon }} item-icon"></i>
+                                    <h4 class="meta-title">{{ fields.section_portfolio_title }}</h4>
+                                    <p class="meta-description">{{ fields.section_portfolio_desc }}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ 'assets/vendor/shuffle/app.js'|theme }}"></script>
+</section>

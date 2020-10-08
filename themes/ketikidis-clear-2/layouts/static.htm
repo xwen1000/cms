@@ -1,0 +1,74 @@
+description = "Static Layout"
+
+[session]
+security = "all"
+
+[staticPage]
+useContent = 1
+default = 0
+
+[contactForm]
+loadJS = 1
+
+[searchInput]
+useAutoComplete = 1
+autoCompleteResultCount = 5
+showProviderBadge = 1
+searchPage = "search-results.htm"
+
+[mailSignup]
+==
+<!DOCTYPE html>
+<html lang="{{ this.theme.site_locale }}">
+    <head>
+        {% partial "site/meta" %}
+        {% partial "site/css" %}
+    </head><!--/#head-->
+    <body class="page-{{ this.page.title }} layout-{{ this.page.layout }}">
+    
+        <!--Google Analytics -->
+        {{ this.theme.google_analytics|raw }}
+
+        <header id="header-wrap" class="header">
+            {% partial "site/top" %}
+            {% partial "site/nav" %}
+        </header><!--/#header-->
+        
+        <!-- Repeater -->
+        {repeater name="sections" groups="~/themes/ketikidis-clear/meta/blocks.yaml" tab="Blocks"}
+            {variable name="_dummy" type="text"}{/variable}
+        {/repeater}
+        
+        <!-- Render blocks -->
+        {% for section in sections %}
+            {% partial 'blocks/' ~ section._group data=section %}
+        {% endfor %}
+
+        <!-- Page -->
+        <section class="page-section">
+            {% if this.theme.layout_container %}
+            <div class="{{ this.theme.layout_container }}">
+            {% else %}
+            <div class="container">
+            {% endif %}
+                {% page %}
+            </div>
+        </section>
+        <footer>
+        	{% partial "site/footer" %}
+        </footer><!--/#footer-->
+        
+        <!-- Copyright -->
+        {% partial "site/copyright" %}
+    
+        <!-- Scroll to top -->
+        {% partial "site/scrolltop" %}
+        
+        <!-- Loader -->
+        {% partial "site/loader" %}
+    
+        <!-- Scripts -->
+        {% partial "site/scripts" %}
+
+</body><!--/#body-->
+</html>

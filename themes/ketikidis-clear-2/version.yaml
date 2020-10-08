@@ -1,0 +1,26 @@
+1.0.0: Initial release
+1.0.1: Fix Magnific-Popup post gallery js error
+1.0.2: Added some SCSS styles for better responsive design
+1.0.3: Disable parallax effect on mobile devices for better optimization
+1.0.4: Change Next & Prev post navigation name to Post
+1.0.5: Remove unnecessary if statement for dev purposes
+1.0.6: Fix video header responsive css
+1.0.7: Add images and gallerys on tag results page
+1.0.8: Optimize search results page code
+1.0.9: Custom block addition. Clients can easily create custom style blocks
+1.0.10: Update SCSS prefixes for better browser support
+1.1.0: Fix tabs block code. Now you can use multiple tabs and tabs skills on same page without issues.
+1.1.1: Added possibility to use Url links instead of Popup on Portfolio Section block. 
+1.1.2: Added option to hide Portfolio filter.
+1.1.3: Fixed Font Changer on theme settings.
+1.1.4: Added feature. Now you can have transparent menu without topbar.
+1.1.5: Removed unnecessary padding on page layout.
+1.1.6: Minor css fixes.
+1.1.7: Fixed blog categories pagination issue.
+1.1.8: Fixed css transition on main menu.
+1.1.9: Strip Html on meta tags
+1.2.0: Convert Map block language and region dropdown fields to text for better support.
+1.2.1: Added meta tag keywords
+1.2.2: Fixed issue with subscribe combonent that didn't show flash messages
+1.2.3: General fixes
+1.2.4: Added raw filter on custom_js field 

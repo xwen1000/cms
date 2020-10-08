@@ -1,0 +1,35 @@
+description = "产品的特殊布局"
+==
+<!DOCTYPE html>
+<html lang="{{ this.theme.site_locale }}">
+    <head>
+        {% partial "site/meta" %}
+        {% partial "site/css" %}
+    </head><!--/#head-->
+    <body class="page-{{ this.page.id }} layout-{{ this.page.layout }}">
+    
+        <!--Google Analytics -->
+        {{ this.theme.google_analytics|raw }}
+
+    
+        
+        {% page %}
+    
+        <!--Blog partials-->
+
+        <!-- Copyright -->
+    
+        <!-- Scroll to top -->
+        {% partial "site/scrolltop" %}
+        
+        <!-- Loader -->
+        {% partial "site/loader" %}
+    
+        <!-- Scripts -->
+        {% partial "site/scripts" %}
+        
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/layer/2.3/layer.js"></script>
+
+</body><!--/#body-->
+</html>

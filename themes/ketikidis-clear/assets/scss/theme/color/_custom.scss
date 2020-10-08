@@ -1,0 +1,470 @@
+//colors
+$color_custom_primary: $theme-primary-color;
+$color_custom_secontary: $theme-secontary-color;
+
+a {
+	color: $color_custom_primary;
+	&:hover {
+		color: $color_custom_secontary;
+	}
+	&:focus {
+		color: $color_custom_secontary;
+	}
+	&:not([href]):not([tabindex]) {
+		&:focus {
+			color: $color_custom_primary;
+		}
+		&:hover {
+			color: $color_custom_primary;
+		}
+	}
+}
+.btn-common {
+	border-color: $color_custom_primary;
+	background-color: $color_custom_primary;
+	&:hover {
+		border-color: $color_custom_primary;
+		color: $color_custom_primary;
+	}
+}
+.controls {
+	.active {
+		color: $color_custom_primary !important;
+		border-color: $color_custom_primary;
+	}
+	.mixitup-control-active {
+		color: $color_custom_primary!important;
+		border-color: $color_custom_primary;
+	}
+}
+#carousel-area {
+	.carousel-control-next i:hover {
+		border: 2px solid $color_custom_primary;
+		background: $color_custom_primary;
+	}
+	.carousel-control-prev i:hover {
+		border: 2px solid $color_custom_primary;
+		background: $color_custom_primary;
+	}
+}
+.section-header {
+	.lines {
+		border-color: $color_custom_primary;
+		&:before {
+			background: $color_custom_primary;
+		}
+	}
+	.section-title span {
+		color: $color_custom_primary;
+	}
+}
+.overlay {
+	background: $color_custom_primary;
+}
+.item-line {
+	background: $color_custom_primary none repeat scroll 0 0;
+}
+.menu-wrap {
+	a {
+		&:hover {
+			color: $color_custom_primary;
+		}
+		&:focus {
+			color: $color_custom_primary;
+		}
+	}
+	.navbar-nav li {
+		.active {
+			color: $color_custom_primary;
+		}
+		.active::before {
+			color: $color_custom_primary;
+		}
+	}
+}
+.pricing-table {
+	.icon {
+		color: $color_custom_primary;
+		border-color: $color_custom_primary;
+	}
+	.pricing-details span {
+		color: $color_custom_primary;
+	}
+	&.table-top {
+		border: 1px solid $color_custom_primary;
+	}
+	&:hover {
+		.icon {
+			background: $color_custom_primary;
+		}
+	}
+}
+#blog {
+	.blog-item-img:before {
+		background: $color_custom_primary;
+	}
+	.blog-item-text h3 a:hover {
+		color: $color_custom_primary;
+	}
+}
+.blog-gallery {
+	#post-gallery-items {
+		.post-gallery-item:before {
+				background: $color_custom_primary;
+		}
+	}
+}
+.similar-posts {
+	.blog-item-img:before {
+		background: $color_custom_primary;
+	}
+	.blog-item-text h3 a:hover {
+		color: $color_custom_primary;
+	}
+}
+.video-promo {
+	.video-promo-content {
+		.video-popup {
+			&:hover {
+				background: $color_custom_primary;
+			}
+		}
+	}
+}
+.btn-border:hover {
+	background-color: $color_custom_primary;
+}
+#subscribe .sub_btn {
+	background: $color_custom_primary;
+	&:hover {
+		background: $color_custom_primary;
+	}
+}
+#page-header .overlay {
+	background: $color_custom_primary;
+}
+.mainmenu-area .navbar-nav {
+	.nav-link {
+		&.active {
+			color: $color_custom_primary;
+		}
+		&.active::before {
+			color: $color_custom_primary;
+		}
+		&.open {
+			color: $color_custom_primary;
+		}
+		&:focus {
+			color: $color_custom_primary;
+		}
+		&:hover {
+			color: $color_custom_primary;
+			&:before {
+				color: $color_custom_primary;
+			}
+		}
+		&:before {
+			background: $color_custom_primary;
+		}
+	}
+	.active > .nav-link {
+		color: $color_custom_primary;
+	}
+	.open > .nav-link {
+		color: $color_custom_primary;
+	}
+}
+#header-wrap {
+	&.transparent {
+		.top-section {
+			.top-area {
+				.language {
+					.picker-lang.active a {
+						color: $color_custom_primary;
+					}
+				}
+			}
+		}
+		.mainmenu-area {
+			.navbar-nav > li > {
+				.nav-link {
+					&:hover {
+						color: $color_custom_primary;
+					}
+				}
+			}
+			.navbar-nav > li.active > {
+				.nav-link {
+					color: $color_custom_primary;
+				}
+			}
+		}
+		.mainmenu-area.sticky.is-sticky {
+			.navbar-nav > li > {
+				.nav-link {
+					&:hover {
+						color: $color_custom_primary;
+					}
+				}	
+			}
+			.navbar-nav > li.active > {
+				.nav-link {
+					color: $color_custom_primary;
+				}
+			}
+		}
+	}
+}
+.navbar-toggler {
+	background: $color_custom_primary;
+	&:active {
+		border: 1px solid $color_custom_primary;
+		color: $color_custom_primary;
+	}
+	&:hover {
+		border: 1px solid $color_custom_primary;
+	}
+	&:hover i {
+		color: $color_custom_primary;
+	}
+}
+.icon-list a::before {
+	background: $color_custom_primary;
+}
+#about .about-boxes .icon {
+	border-color: $color_custom_primary;
+	i {
+		color: $color_custom_primary;
+	}
+}
+.item-boxes {
+	.icon {
+		border-color: $color_custom_primary;
+		i {
+			color: $color_custom_primary;
+		}
+	}
+	&:hover .icon {
+		background: $color_custom_primary;
+	}
+}
+#features .box-item {
+	.icon {
+		border-color: $color_custom_primary;
+		i {
+			color: $color_custom_primary;
+		}
+	}
+	&:hover .icon {
+		background: $color_custom_primary;
+	}
+}
+.shot-item .overlay {
+	&:before {
+		background: $color_custom_primary;
+	}
+	&:after {
+		background: $color_custom_primary;
+	}
+}
+.owl-theme .owl-dots {
+	.owl-dot span {
+		background: $color_custom_primary;
+	}
+	.owl-dot.active span {
+		background: $color_custom_primary;
+	}
+}
+.meta-tags span a:hover {
+	color: $color_custom_primary;
+}
+.form-control:focus {
+	-webkit-box-shadow: 0 0 2px $color_custom_primary;
+	        box-shadow: 0 0 2px $color_custom_primary;
+}
+#contact:before {
+	background: $color_custom_primary;
+}
+.contactinfo-table {
+	.contactinfo-details {
+		span {
+			color: $color_custom_primary;
+		}
+	}
+}
+.back-to-top i {
+	background-color: $color_custom_primary;
+}
+.double-bounce1, .double-bounce2, .double-bounce3 {
+	background-color: $color_custom_primary;
+}
+.single-team .social-list li a {
+	color: $color_custom_primary;
+}
+.blog-section {
+	.blog-post {
+		.blog-data {
+			.blog-share {
+				a {
+					border: 1px solid $color_custom_primary;
+					&:hover {
+						background: $color_custom_primary;
+					}
+				}
+			}
+		}
+		.sidebar-area {
+			.categories {
+				.badge {
+					background: $color_custom_primary;
+				}
+			}
+		}
+	}
+}
+.blog-pagination nav ul.pagination li.page-item {
+	a {
+		&:hover {
+			background: $color_custom_primary none repeat scroll 0 0;
+			border: 1px solid $color_custom_primary;
+		}
+		&:focus {
+			background: $color_custom_primary none repeat scroll 0 0;
+			border: 1px solid $color_custom_primary;
+		}
+	}
+	&.active a {
+		background: $color_custom_primary none repeat scroll 0 0;
+		border: 1px solid $color_custom_primary;
+	}
+}
+.about-section {
+	.details-list {
+		h4 {
+			color: $color_custom_primary;
+		}
+	}
+	h2.title {
+		color: $color_custom_primary;
+	}
+}
+#default-tab {
+	.nav-tabs > li {
+		> a.active {
+			color: $color_custom_primary;
+		}
+		a.active {
+			&:focus {
+				color: $color_custom_primary;
+			}
+			&:hover {
+				color: $color_custom_primary;
+			}
+		}
+	}
+	ul.nav-tabs > li a.active::before {
+		background-color: $color_custom_primary;
+	}
+}
+#skills-tabs {
+	ul.nav-tabs li a {
+		border: 1px solid $color_custom_primary;
+		&:focus {
+			background: $color_custom_primary none repeat scroll 0 0;
+		}
+		&:hover {
+			background: $color_custom_primary none repeat scroll 0 0;
+		}
+		&.active {
+			background: $color_custom_primary none repeat scroll 0 0;
+		}
+		i {
+			color: $color_custom_primary;
+		}
+	}
+}
+.progress-bar {
+    background: $color_custom_primary;
+}
+.top-section {
+	.top-area {
+		.language {
+			.picker-lang {
+				&.active a {
+					color: $color_custom_primary;
+				}
+			}
+		}
+	}	
+}
+#clients {
+	.client-item-wrapper{
+		&:hover {
+			border-color: $color_custom_primary;
+		}
+	}
+}
+.next-prev {
+	ul {
+		> li {
+			a {
+				&:hover {
+					border-color: $color_custom_primary;
+					i {
+						color: $color_custom_primary;
+					}
+				}
+				&:focus {
+					border-color: $color_custom_primary;
+					i {
+						color: $color_custom_primary;
+					}
+				}
+				&:active {
+					border-color: $color_custom_primary;
+					i {
+						color: $color_custom_primary;
+					}
+				}
+			}
+		}
+	}
+}
+footer {
+	.footer-widget {
+		ul li {
+			a {
+				&::before {
+					color: $color_custom_primary;
+				}
+			}
+		}
+		.tagcloud {
+			a {
+				&:hover {
+					border: 1px solid $color_custom_primary;
+					color: $color_custom_primary;
+				}
+			}
+		}
+		.contact-list {
+			li {
+				i {
+					background: $color_custom_primary;
+					border: 1px solid $color_custom_primary;
+				}
+			}
+		}
+	}
+}
+.social-icons {
+	ul {
+		li {
+			a {
+				&:hover {
+					background: $color_custom_primary;
+				}
+			}
+		}
+	}
+}
